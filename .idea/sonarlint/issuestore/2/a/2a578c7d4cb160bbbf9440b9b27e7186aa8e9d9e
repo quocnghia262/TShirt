@@ -1,0 +1,11 @@
+
+
+java:S1192h"QDefine a constant instead of duplicating this literal "/upload/product/" 4 times.(Ê™ËJ$70a79f57-3874-4e34-a10f-32edd6711937
+“
+java:S1192j"WDefine a constant instead of duplicating this literal "/upload/no_preview.jpg" 4 times.(Î¯ĞŠJ$a9aeae67-b7ef-4510-9d55-dbd78fe3a48b
+˜	java:S116L"XRename this field "image_posted1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ùŠ¯‚ÿÿÿÿÿJ$9af9d547-1677-42a0-a254-d3c3a59ff0d5
+“	java:S116R"XRename this field "image_posted2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õä¼¥J$22949255-c3c5-4042-80b9-dd8b14e874d2
+˜	java:S116X"XRename this field "image_posted3" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡À£ÌøÿÿÿÿJ$69fc276e-9977-4983-b07a-32bb311a8c55
+˜	java:S116^"XRename this field "image_posted4" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İ­š–ûÿÿÿÿJ$6fa72583-416b-4cc1-8736-735e3e992b92
+’
+java:S1128"ORemove this unused import 'org.hibernate.validator.constraints.UniqueElements'.(–¬ëÑ8¯ÛŸ‡‰2J$a86bfd38-581e-4b1c-89b5-8a0648cf8fde

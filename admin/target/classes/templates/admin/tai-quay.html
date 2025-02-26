@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <title>Bán hàng tại quầy</title>
+</head>
+<body>
+<section layout:fragment="header">
+    <h1>
+        Bán Hàng Tại Quầy
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a th:href="@{/}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Bán Hàng Tại Quầy</li>
+    </ol>
+</section>
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info" style="padding: 20px">
+                <form th:action="@{/admin/tai-quay/save}" th:object="${counterSaleDto}" method="post" class="form-horizontal">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <table class="table" id="products">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Tên sản phẩm</th>
+                                        <th>Hình ảnh</th>
+                                        <th>Giá</th>
+                                        <th>Số lượng</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="product, iterStat : ${counterSaleDto.products}">
+                                        <td><input type="hidden" th:field="*{products[__${iterStat.index}__].id}"></td>
+                                        <td th:text="${product.name}"></td>
+                                        <td>
+                                            <img th:src="@{${product.image}}" style="width:50px; height:50px;" />
+                                        </td>
+                                        <td th:text="${product.price}"></td>
+                                        <td>
+                                            <input type="number" th:value="${product.quantity}" th:field="*{products[__${iterStat.index}__].quantity}" class="form-control">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-5">
+                            <table class="table" id="customers">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Tên khách hàng</th>
+                                        <th>Email</th>
+                                        <th>Số điện thoại</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="customer : ${customers}">
+                                        <td><input required type="radio" th:field="*{customerId}" th:value="${customer.id}" ></td>
+                                        <td th:text="${customer.firstName + ' ' + customer.lastName}"></td>
+                                        <td th:text="${customer.username}"></td>
+                                        <td th:text="${customer.phone}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div style="margin-top: 30px;">
+                                <p><b>Chưa có khách hàng?</b> <a th:href="@{/customer/add}">Tạo mới</a></p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: end; align-items: center">
+                        <button type="submit" class="btn btn-success">Tạo đơn hàng</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<th:block layout:fragment="script">
+    <script>
+        $(function () {
+            var productsTable =  $('#products').DataTable({
+                'paging'      : false,
+                'lengthChange': false,
+                'searching'   : false,
+                'ordering'    : true,
+                'info'        : true,
+                'autoWidth'   : true
+            })
+
+            var customersTable = $('#customers').DataTable({
+                'paging'      : false,
+                'lengthChange': false,
+                'searching'   : false,
+                'ordering'    : true,
+                'info'        : true,
+                'autoWidth'   : true
+            })
+
+            jQuery('#example1_wrapper input').addClass("form-control input-sm"); // modify table search input
+        })
+    </script>
+</th:block>
+
+</body>
+
+</html>

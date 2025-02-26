@@ -1,0 +1,11 @@
+
+’
+java:S1192"JDefine a constant instead of duplicating this literal "orderList" 3 times.(è×Œªşÿÿÿÿ8†‰2J$1e4aa121-e27e-476a-aabb-a763f21dd45b
+™	java:S116"XRename this field "list_template" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¨Œ»,8†‰2J$aa851039-5299-4805-911c-1e839e3e3370
+¡	java:S116"ZRename this field "detail_template" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾œİ¨üÿÿÿÿ8†‰2J$0464fbd9-f365-4ce3-9bfa-9f7a0969260b
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8†‰2J$98a2586e-ce95-45a6-83ee-2f9fe1304117
+
+java:S1128">Remove this unused import 'book.ecommerce.library.model.Make'.(×ŸˆŞ8¤†‰2J$bd7d888b-547a-43a6-b6e2-235806a70b2c
+
+java:S1128"HRemove this unused import 'book.ecommerce.library.service.ModelService'.(ÚÕ³Ùüÿÿÿÿ8¤†‰2J$6c1c2dc7-a9b0-484a-85ed-cc49eb40a975

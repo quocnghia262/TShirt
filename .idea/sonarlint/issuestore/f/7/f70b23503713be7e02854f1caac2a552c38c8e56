@@ -1,0 +1,29 @@
+
+‹
+java:S1192/"HDefine a constant instead of duplicating this literal "product" 3 times.(³Ù×Ã8Ùı§‡‰2J$026cae7a-eadc-445d-9cac-8f7b069c266b
+“
+java:S11921"KDefine a constant instead of duplicating this literal "categories" 4 times.(¶á‰Âúÿÿÿÿ8Úı§‡‰2J$6f36e9e5-30d5-441f-b07a-45dbb7312408
+‘
+java:S1192:"IDefine a constant instead of duplicating this literal "listYear" 3 times.(Òêé“şÿÿÿÿ8Úı§‡‰2J$21b992d9-5ca1-483f-a616-fd17a5641505
+Œ
+java:S11924"IDefine a constant instead of duplicating this literal "listMake" 3 times.(Ò—”Œ8Úı§‡‰2J$4da286c7-b8b4-484f-af34-6560f99cf827
+	java:S116("\Rename this field "add_edit_template" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢Á¿F8äı§‡‰2J$a780d3c8-6320-4364-a800-948f76bd6426
+Ÿ	java:S116)"XRename this field "list_template" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( ëËËıÿÿÿÿ8äı§‡‰2J$6b4366db-7581-4053-89c6-18e960dc1298
+Ÿ	java:S116*"XRename this field "list_redirect" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼è¹óşÿÿÿÿ8äı§‡‰2J$359fe827-d528-4ac8-845a-79cf763e5518
+­
+java:S6833"eReplace the "@Controller" annotation by "@RestController" and remove all "@ResponseBody" annotations.(íœ¡ñùÿÿÿÿ8äı§‡‰2J$cb93ac9e-3804-43ba-9843-3bd9fd91b1fe
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8åı§‡‰2J$e7847d16-0163-4428-8f94-4e1759bb5106
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8åı§‡‰2J$746b7b52-a7cc-4e9b-a494-5dc633bc9bf7
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8åı§‡‰2J$f6260149-6acc-4693-8b2c-b99b6a47ee58
+…
+java:S6813!"BRemove this field injection and use constructor injection instead.(êæÄŞ8åı§‡‰2J$dff5904c-09d0-4670-9a09-844b92d6a747
+…
+java:S6813$"BRemove this field injection and use constructor injection instead.(êæÄŞ8åı§‡‰2J$c95df84b-a556-4c4b-b028-6956e2063fa9
+ˆ
+java:S4684."@Replace this persistent entity with a simple POJO or DTO object.(•›Ûşÿÿÿÿ8èı§‡‰2J$07dc8c5e-40de-4622-8eee-0970b710a842
+ƒ
+java:S4684Z"@Replace this persistent entity with a simple POJO or DTO object.(åƒ½û8íı§‡‰2J$25d7b75d-0d96-4b58-aea5-aaa70b582848
+ƒ	java:S125y"<This block of commented-out lines of code should be removed.(™Ê¸øÿÿÿÿ8ïı§‡‰2J$f0689dc0-ab92-45d2-89eb-fa1b9d7f784c

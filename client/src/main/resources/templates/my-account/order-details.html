@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Order Details</title>
+</head>
+<body>
+
+
+<!-- Main Container  -->
+<div layout:fragment="content"  class="main-container container">
+    <ul class="breadcrumb">
+        <li><a href="#"><i class="fa fa-home"></i></a></li>
+        <li><a href="#">Chi Tiết Đơn Hàng</a></li>
+    </ul>
+
+    <div class="row">
+        <!--Middle Part Start-->
+        <div id="content" class="col-sm-9">
+            <div th:if="${error}">
+                <div class="alert alert-danger" th:text="${error}"></div>
+            </div>
+
+            <h2 class="title">Chi Tiết Đơn Hàng</h2>
+
+            <div th:if="${error == null}">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <td colspan="2" class="text-left">Chi Tiết Đơn Hàng</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td style="width: 50%;" class="text-left"> <b>Order ID:</b> <span th:text="'#'+${order.id}"></span>
+                            <br>
+                            <b>Date Added:</b> <span
+                                    th:text='${order.orderDate.toString().replace(".0", "")}'>
+                            </span></td>
+                        <td style="width: 50%;" class="text-left"> <b>Payment Method:</b> <span th:text="${order.paymentMethod}"></span>
+                            <br>
+                            <b>Shipping Method:</b> <span th:text="${order.shippingMethod}"></span> </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <td style="width: 50%; vertical-align: top;" class="text-left">Địa chỉ giao hàng</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="text-left">
+                            <p th:text="'Họ và tên: ' + ${order.customer.firstName}+' '+${order.customer.lastName}"></p>
+<!--                            <p th:text="'Địa chỉ: ' + ${order.customer.address1}"></p>-->
+                            <p th:text="'Số điện thoại: ' + ${order.customer.phone}"></p>
+<!--                            <p th:text="${order.customer.state}"></p>-->
+<!--                            <p th:text="${order.customer.city}"></p>-->
+<!--                            <p th:text="${order.customer.country.name}"></p>-->
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <td class="text-left">Tên Sản Phẩm</td>
+                            <td class="text-left">Hình Ảnh</td>
+                            <td class="text-right">Số Lượng</td>
+                            <td class="text-right">Đơn Giá</td>
+                            <td class="text-right">Tổng Tiền</td>
+                            <td style="width: 20px;"></td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="orderDetail : ${order.getOrderDetailList()}">
+                            <td class="text-left" th:text="${orderDetail.product.name}"></td>
+                            <td>
+                                <img th:src="#{adminPath}+${orderDetail.product.getFullImage1Url()}" style="width:50px; height:50px;" />
+                            </td>
+                            <td class="text-right" th:text="${orderDetail.quantity}"></td>
+                            <td class="text-right"  th:text="${#numbers.formatDecimal(orderDetail.ourPrice, 0, 'COMMA', 3, 'POINT') + 'đ'}"></td>
+                            <td class="text-right"  th:text="${#numbers.formatDecimal(orderDetail.totalPrice, 0, 'COMMA', 3, 'POINT') + 'đ'}"></td>
+                            <td style="white-space: nowrap;" class="text-right">
+                                <a class="btn btn-primary" title="" data-toggle="tooltip" target="_blank" th:href="@{/part-details(id=${orderDetail.product.id})}" data-original-title="Reorder"><i class="fa fa-eye"></i></a>
+                                <!--
+                                                            <a class="btn btn-danger" title="" data-toggle="tooltip" th:href="@{/product-details(id=${orderDetail.product.id})}" data-original-title="Return"><i class="fa fa-reply"></i></a>
+                                -->
+                            </td>
+                        </tr>
+
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="3"></td>
+                            <td class="text-right"><b>Tổng Tiền:</b>
+                            </td>
+                            <td class="text-right"  th:text="${#numbers.formatDecimal(order.subTotal, 0, 'COMMA', 3, 'POINT') + 'đ'}"></td>
+                            <td></td>
+                        </tr>
+<!--                        <tr>-->
+<!--                            <td colspan="3"></td>-->
+<!--                            <td class="text-right">-->
+<!--                                <strong>Thuế:</strong>-->
+<!--                            </td>-->
+<!--                            <td class="text-right" th:text="${#numbers.formatDecimal(order.taxRate, 0, 'COMMA', 3, 'POINT') + 'đ'}"></td>-->
+<!--                            <td></td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td colspan="3"></td>-->
+<!--                            <td class="text-right">-->
+<!--                                <strong>Tổng Thuế:</strong>-->
+<!--                            </td>-->
+<!--                            <td class="text-right"  th:text="${#numbers.formatDecimal(order.taxTotal, 0, 'COMMA', 3, 'POINT') + 'đ'}"></td>-->
+<!--                            <td></td>-->
+<!--                        </tr>-->
+                        <tr>
+                            <td colspan="3"></td>
+                            <td class="text-right"><b>Phí Vận Chuyển:</b>
+                            </td>
+                            <td class="text-right" th:text="${#numbers.formatDecimal(order.shippingTotal, 1, 'POINT', 3, 'POINT') + 'đ'}"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"></td>
+                            <td class="text-right"><b>Tổng Thanh Toán:</b>
+                            </td>
+                            <td class="text-right"  th:text="${#numbers.formatDecimal(order.subTotal + order.shippingTotal, 1, 'POINT', 3, 'POINT') + 'đ'}"></td>
+                            <td></td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <h3>Order History</h3>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <td class="text-left">Date Added</td>
+                        <td class="text-left">Status</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="text-left" th:text='${order.orderDate.toString().replace(".0", "")}'></td>
+                        <td class="text-left" th:text="${order.orderStatus}"></td>
+                    </tr>
+                    <!--
+                                    <tr>
+                                        <td class="text-left">24/06/2016</td>
+                                        <td class="text-left">Complete</td>
+                                    </tr>
+                    -->
+                    </tbody>
+                </table>
+                <div class="buttons clearfix">
+                    <div class="pull-right"><a class="btn btn-primary" onclick="javascript:window.print();" href="#">Print</a></div>
+                </div>
+            </div>
+
+
+        </div>
+        <!--Middle Part End-->
+
+        <div th:replace="/my-account/template/leftnav"></div>
+
+    </div>
+</div>
+<!-- //Main Container -->
+
+<th:block layout:fragment="script">
+</th:block>
+</body>
+</html>

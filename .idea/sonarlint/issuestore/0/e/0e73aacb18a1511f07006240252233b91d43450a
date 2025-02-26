@@ -1,0 +1,19 @@
+
+œ
+java:S22931"YReplace the type specification in this constructor call with the diamond operator ("<>").(İó¼8³ş«‡‰2J$2f149e2c-060d-4f81-bf08-f32d9b369994
+œ
+java:S2293K"YReplace the type specification in this constructor call with the diamond operator ("<>").(İó¼8´ş«‡‰2J$234a5b0c-8459-4ef3-8c6b-4ac03715631b
+§
+java:S14881"dImmediately return this expression instead of assigning it to the temporary variable "pageProducts".(İó¼8µş«‡‰2J$af5d942c-ab3c-4707-9ffc-1d121a42967a
+§
+java:S1488K"dImmediately return this expression instead of assigning it to the temporary variable "pageProducts".(İó¼8µş«‡‰2J$d02cfa5b-6270-40dc-947a-e35aadf6578d
+›
+java:S2095"RUse try-with-resources or close this "BufferedOutputStream" in a "finally" clause.(ßÌ ¸ÿÿÿÿÿ8Úş«‡‰2J$46770622-3537-47f6-b97d-9b2a68215cee
+™
+java:S3655"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(Àèä¾úÿÿÿÿ8Úş«‡‰2J$a7e03c3f-7053-436c-89a0-82bb4737a686
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8Üş«‡‰2J$2e63fa4b-098d-47a9-bf5d-7982ef3c77df
+ƒ	java:S125="<This block of commented-out lines of code should be removed.(éÚ—èıÿÿÿÿ8áş«‡‰2J$388a8bb2-823f-47fa-9587-24968553ffa0
+•	java:S100o"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø‡€ÿÿÿÿÿ8æş«‡‰2J$9bc5a03d-3c89-43ee-93df-dc7ffeca7c04
+n
+java:S1075x"&Remove this hard-coded path-delimiter.(áª”±ùÿÿÿÿ8éş«‡‰2J$2265ee82-2c26-4767-b788-07f4a43b41fb

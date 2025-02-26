@@ -1,0 +1,15 @@
+
+Œ
+java:S1192"KDefine a constant instead of duplicating this literal "from.email" 3 times.(ÅÄ§ıÿÿÿÿJ$bf25fa31-7d99-4dd1-87ef-6193828d76d1
+Ï
+java:S44492"Annotate the parameter with @javax.annotation.Nullable in method 'setFrom' declaration, or make sure that null can not be passed as argument.(ÅÄ§ıÿÿÿÿJ$8dfb17f8-ed5c-472b-bc02-72887da00a53
+Í
+java:S4449"‹Annotate the parameter with @javax.annotation.Nullable in method 'setTo' declaration, or make sure that null can not be passed as argument.(˜È‡ùÿÿÿÿJ$52284b20-75be-4d2e-ba4c-853af313c0ac
+Ï
+java:S4449I"Annotate the parameter with @javax.annotation.Nullable in method 'setFrom' declaration, or make sure that null can not be passed as argument.(ÅÄ§ıÿÿÿÿJ$0bf03366-22e4-4cb9-a5c5-0d7f8cb596f9
+Ï
+java:S4449"Annotate the parameter with @javax.annotation.Nullable in method 'setFrom' declaration, or make sure that null can not be passed as argument.(ÅÄ§ıÿÿÿÿJ$37d3a2c2-bde0-46f7-9f82-dc31f3948e9c
+~
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞJ$03f561c2-9dfa-4142-ab24-00a783b46292
+~
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞJ$3c201b6f-1496-4a89-b5bd-4def80cb1878

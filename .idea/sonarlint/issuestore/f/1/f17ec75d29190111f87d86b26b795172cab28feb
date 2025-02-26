@@ -1,0 +1,9 @@
+
+•
+java:S22935"YReplace the type specification in this constructor call with the diamond operator ("<>").(Â¬À¦J$41b56dd2-d357-4960-99b8-f9a703be217b
+“
+java:S3655L"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(òÄèØ8‘Œ³¼‡2J$42485ef5-f6a1-43a9-b3ef-40d0c40ec9b8
+~
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄÞJ$578bec85-6d61-4552-988a-327e261f0da2
+~
+java:S1128"6Remove this unused import 'org.aspectj.weaver.ast.Or'.(®ô²Îûÿÿÿÿ8á×É†‰2J$11442f47-9ea1-4ddb-ae19-395d8e09dfcb

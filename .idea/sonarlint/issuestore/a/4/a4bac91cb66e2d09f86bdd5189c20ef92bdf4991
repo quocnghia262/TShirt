@@ -1,0 +1,60 @@
+
+w
+java:S3740+"/Provide the parametrized type for this generic.(ÒËÜõúÿÿÿÿ8úË¨•‡2J$9803c9c1-8ae6-4517-b3e1-a28a7c22c47b
+r
+java:S3740,"/Provide the parametrized type for this generic.(ç¤—”8óš¨•‡2J$ade838b7-abdd-4786-92db-c3844d76605a
+r
+java:S3740,"/Provide the parametrized type for this generic.(ç¤—”8Ùµ¨•‡2J$a2098265-6e33-48be-b357-0eeadec62f74
+w
+java:S3740/"/Provide the parametrized type for this generic.(ÔöŠÿÿÿÿÿ8óš¨•‡2J$b1bb9cf2-a478-41c5-ab4e-7ea323eea535
+–
+java:S1104"SMake vnp_Url a static final constant or non-public and provide accessors if needed.(Øô‡ê8§Ç¥•‡2J$bfdcdbb2-5d43-49bb-8d06-5b56144a479d
+œ
+java:S1104"YMake vnp_Returnurl a static final constant or non-public and provide accessors if needed.(ÑÕ©ö8¨Ç¥•‡2J$6fd6efc9-b6e5-4841-9a83-bc9f7dd88d01
+Ÿ
+java:S1104"WMake vnp_TmnCode a static final constant or non-public and provide accessors if needed.(Õ’³”ÿÿÿÿÿ8¨Ç¥•‡2J$52099f0d-59ae-4d4e-8442-5333352c1cf2
+¢
+java:S1104"ZMake vnp_HashSecret a static final constant or non-public and provide accessors if needed.(ÄÉª˜øÿÿÿÿ8¨Ç¥•‡2J$2f142b65-81f9-46d5-8471-6138a25deb62
+˜
+java:S1104"VMake vnp_apiUrl a static final constant or non-public and provide accessors if needed.(ÎÑ»"8¨Ç¥•‡2J$4626b1b6-f255-41b1-b313-f98d9bb0686c
+š
+java:S1104"WMake vnp_Version a static final constant or non-public and provide accessors if needed.(¢ğúÖ8¨Ç¥•‡2J$da47d0fc-f84f-49e6-a965-278dd6cf8909
+™
+java:S1104"WMake vnp_Command a static final constant or non-public and provide accessors if needed.(Íò18õš¨•‡2J$a19e66df-cc17-4d80-9f23-f0b172403111
+p
+java:S1444"-Make this "public static vnp_Url" field final(Øô‡ê8¨Ç¥•‡2J$9f814d62-51a1-40a1-bbf8-da46c599eb0d
+v
+java:S1444"3Make this "public static vnp_Returnurl" field final(ÑÕ©ö8¨Ç¥•‡2J$b5d2ad6c-6b1a-4788-bd1e-173ab0964a1e
+y
+java:S1444"1Make this "public static vnp_TmnCode" field final(Õ’³”ÿÿÿÿÿ8©Ç¥•‡2J$ee9b52fe-25ce-49ef-95b8-f9cfc24fb33f
+|
+java:S1444"4Make this "public static vnp_HashSecret" field final(ÄÉª˜øÿÿÿÿ8©Ç¥•‡2J$a614bc66-f824-4c0e-9d74-2d760b9bc426
+r
+java:S1444"0Make this "public static vnp_apiUrl" field final(ÎÑ»"8©Ç¥•‡2J$158bd2b7-291c-4972-80fd-0b830b4cd63a
+t
+java:S1444"1Make this "public static vnp_Version" field final(¢ğúÖ8©Ç¥•‡2J$109b5450-f379-473a-9ee8-0ac966df165f
+s
+java:S1444"1Make this "public static vnp_Command" field final(Íò18öš¨•‡2J$56ace544-3ea8-4b4b-8719-fd8633b0351b
+•
+java:S3008"RRename this field "vnp_Url" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Øô‡ê8®Ç¥•‡2J$146d32b9-fc60-4aa8-a2bc-4495c5619278
+›
+java:S3008"XRename this field "vnp_Returnurl" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÑÕ©ö8®Ç¥•‡2J$529f9f93-e322-43d4-8a03-61926224ab32
+
+java:S3008"VRename this field "vnp_TmnCode" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ’³”ÿÿÿÿÿ8®Ç¥•‡2J$a8683268-d733-4ad2-980d-ae0d57c0c505
+¡
+java:S3008"YRename this field "vnp_HashSecret" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÄÉª˜øÿÿÿÿ8®Ç¥•‡2J$058dff3e-0151-4a1e-a105-074dafc79288
+—
+java:S3008"URename this field "vnp_apiUrl" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÎÑ»"8®Ç¥•‡2J$a6dcd3da-29c1-4465-8e35-cc141ccae96d
+™
+java:S3008"VRename this field "vnp_Version" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢ğúÖ8®Ç¥•‡2J$831f86c4-c541-4b13-8548-a8a9b71cea9f
+˜
+java:S3008"VRename this field "vnp_Command" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Íò18ÿš¨•‡2J$c7eacc09-cbf2-45dc-9854-2ab9b9d78b53
+‚
+java:S1118":Add a private constructor to hide the implicit public one.(€…ßùüÿÿÿÿ8›¨•‡2J$3f219230-e756-45fa-a1f9-6dc46d6fb5fc
+•	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢í¬Åşÿÿÿÿ8‚›¨•‡2J$2784f05f-c782-4afa-b218-3e897b081b9d
+‡
+java:S2147$"DCombine this catch with the one at line 34, which has the same body.(¤·¿Ã8ƒ›¨•‡2J$ee92da8f-d637-4f8e-bc20-9c727c1bd0bb
+
+java:S4719"9Replace charset name argument with StandardCharsets.UTF_8(šìì½şÿÿÿÿ8„›¨•‡2J$003ba0c7-15a6-4469-8032-9dbfcd5203ec
+a
+java:S2119d"Save and re-use this "Random".(–áÍÈ8ÌÌ¨•‡2J$75b07a0d-6984-48b0-98e8-74515d4e5042

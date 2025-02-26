@@ -1,0 +1,14 @@
+
+—	java:S116"URename this field "vnp_Amount" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úƒ8¿â˜‡2J$d5c2b292-49de-44b5-9c8c-259e5ea21085
+	java:S116"WRename this field "vnp_BankCode" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™³ñùÿÿÿÿ8¿â˜‡2J$77ee3a57-2d80-47b3-8a57-216a73313e80
+›	java:S116	"YRename this field "vnp_BankTranNo" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ù•ÊÃ8¿â˜‡2J$40bf4693-e8f8-4bb4-8dfb-b770f3947cce
+	java:S116
+"WRename this field "vnp_CardType" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆô“úÿÿÿÿ8¿â˜‡2J$88a8790f-aa7d-43ac-9ecb-644e564f304f
+Ÿ	java:S116"XRename this field "vnp_OrderInfo" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÚÑà­úÿÿÿÿ8¿â˜‡2J$1d6026e5-e772-4578-97d0-3c2af11c587a
+	java:S116"VRename this field "vnp_PayDate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚«ø—ùÿÿÿÿ8¿â˜‡2J$d58ea760-205a-4c69-b857-a97ab0452ed6
+	java:S116"[Rename this field "vnp_ResponseCode" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹­ç²8¿â˜‡2J$df4b68b7-c0ce-4aa5-a05c-5d6c0d9fd970
+˜	java:S116"VRename this field "vnp_TmnCode" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Á­œ¢8¿â˜‡2J$b2dc7dab-5e90-46f2-9c4d-44e309db179d
+	java:S116"\Rename this field "vnp_TransactionNo" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çÆñ 8¿â˜‡2J$2ed6ee0f-be68-42ff-825c-174762d75674
+§	java:S116"`Rename this field "vnp_TransactionStatus" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œåãşÿÿÿÿ8¿â˜‡2J$de50c853-db29-4b2b-8c3d-16eb48f001e8
+—	java:S116"URename this field "vnp_TxnRef" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™ë²Ü8¿â˜‡2J$630f5582-a88d-4c9f-82b8-dcabc8af0e9c
+š	java:S116"YRename this field "vnp_SecureHash" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ıÀs8¿â˜‡2J$d452a48a-93b3-4251-b3d0-74c81bf061bd

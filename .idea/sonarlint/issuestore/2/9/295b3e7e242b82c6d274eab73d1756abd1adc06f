@@ -1,0 +1,54 @@
+
+œ
+java:S2293@"YReplace the type specification in this constructor call with the diamond operator ("<>").(¿ÁÒ×8²¦†ðˆ2J$52e9f6d0-fe57-4d80-906b-49a7b7a22b0d
+‰
+java:S2259¹"FA "NullPointerException" could be thrown; "cartItem" is nullable here.(ôÔ™W8Ë¦†ðˆ2J$cad4db33-4a6a-4c15-b037-41110719b7c0
+˜
+java:S3655""PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(ûõ±Ïÿÿÿÿÿ8Ì¦†ðˆ2J$17f4b238-257b-487d-9ad3-570ad3cfb8e8
+Ð
+java:S4449­"ŒAnnotate the parameter with @javax.annotation.Nullable in method 'delete' declaration, or make sure that null can not be passed as argument.(Á…ÝM8Ì¦†ðˆ2J$3f40953b-c4a5-4095-ad02-4aa58bea1670
+š	java:S116"SRename this field "TAX_RATE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œžý¼ùÿÿÿÿ8Í¦†ðˆ2J$7decd6f7-057f-4110-b397-7c55e97c8aaa
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄÞ8Î¦†ðˆ2J$dcf9bf1a-ec84-4602-970b-078d71a85a58
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄÞ8Î¦†ðˆ2J$60ae3818-83b0-485a-935c-16ed38bc7ad4
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄÞ8’Ñ‡ðˆ2J$c5ae3b64-3b61-4d05-a693-9efbd8705083
+r	java:S106'"+Replace this use of System.out by a logger.(ÔŸ¡éùÿÿÿÿ8Ñ¦†ðˆ2J$d5bf2b93-62f0-448b-9d6b-a678277ff840
+†
+java:S1854H">Remove this useless assignment to local variable "grandTotal".(óìðÐÿÿÿÿÿ8Õ¦†ðˆ2J$a304f800-334b-434b-86cc-e44db3ecf225
+„
+java:S1854H"<Remove this useless assignment to local variable "totalTax".(óìðÐÿÿÿÿÿ8Õ¦†ðˆ2J$4c7a4bb0-1759-445c-9ab7-50fa0e04e2f7
+†
+java:S1854H">Remove this useless assignment to local variable "totalPrice".(óìðÐÿÿÿÿÿ8Õ¦†ðˆ2J$cd050c0a-e70a-48f3-b084-e08d9903ca0d
+„
+java:S1854H"<Remove this useless assignment to local variable "subTotal".(óìðÐÿÿÿÿÿ8Õ¦†ðˆ2J$b81ed3d3-b7da-4727-bf96-aa3e151534c9
+
+java:S1659H"GDeclare "totalPrice" and all following declarations on a separate line.(óìðÐÿÿÿÿÿ8Ö¦†ðˆ2J$7db65526-6283-41da-8d5b-8f52ffbc3426
+‡
+java:S1854„">Remove this useless assignment to local variable "grandTotal".(óìðÐÿÿÿÿÿ8Ù¦†ðˆ2J$e036eb58-2a44-4f49-8bf3-66f5f97fd15e
+…
+java:S1854„"<Remove this useless assignment to local variable "totalTax".(óìðÐÿÿÿÿÿ8Ù¦†ðˆ2J$62cd71b3-bf27-4857-8581-35798a31157e
+‡
+java:S1854„">Remove this useless assignment to local variable "totalPrice".(óìðÐÿÿÿÿÿ8Ù¦†ðˆ2J$22193561-82fa-40f5-98d4-2f4f9e44b38d
+…
+java:S1854„"<Remove this useless assignment to local variable "subTotal".(óìðÐÿÿÿÿÿ8Ù¦†ðˆ2J$6d5cedc5-c24b-4ca6-9285-6a2c30441632
+
+java:S1659„"GDeclare "totalPrice" and all following declarations on a separate line.(óìðÐÿÿÿÿÿ8Ú¦†ðˆ2J$d3bb3e08-701c-48c5-97f7-eff82af50d63
+x
+java:S1481„"/Remove this unused "totalPrice" local variable.(óìðÐÿÿÿÿÿ8Ú¦†ðˆ2J$8af46147-7767-4935-98bf-3d8cde74fc76
+v
+java:S1481…"-Remove this unused "totalQty" local variable.(éÁ¸šùÿÿÿÿ8Ú¦†ðˆ2J$c9f1e6f4-70c4-46a8-9328-38a2ac1ef314
+s	java:S106Š"+Replace this use of System.out by a logger.(î¦‰ôùÿÿÿÿ8Û¦†ðˆ2J$100b7550-253e-4d4d-8283-496d79dfe402
+n	java:S106"+Replace this use of System.out by a logger.(€Ý¥ï8Û¦†ðˆ2J$a50e3b58-d5ac-446d-b586-06be7162f233
+s	java:S106‘"+Replace this use of System.out by a logger.(Ÿ˜øžþÿÿÿÿ8Ü¦†ðˆ2J$77407325-5096-479b-b352-3d91b871c0be
+‡
+java:S1854³">Remove this useless assignment to local variable "grandTotal".(óìðÐÿÿÿÿÿ8Ý¦†ðˆ2J$3afc8968-cf0b-4ea8-a008-e1f91cf97187
+…
+java:S1854³"<Remove this useless assignment to local variable "totalTax".(óìðÐÿÿÿÿÿ8Ý¦†ðˆ2J$1c1bd240-630e-470d-94e2-539605ca9dde
+‡
+java:S1854³">Remove this useless assignment to local variable "totalPrice".(óìðÐÿÿÿÿÿ8Ý¦†ðˆ2J$ac103c8e-4ec7-40dc-af70-229e52584503
+…
+java:S1854³"<Remove this useless assignment to local variable "subTotal".(óìðÐÿÿÿÿÿ8Ý¦†ðˆ2J$4508c74f-11ac-42e7-975b-12957582b349
+
+java:S1659³"GDeclare "totalPrice" and all following declarations on a separate line.(óìðÐÿÿÿÿÿ8Þ¦†ðˆ2J$8a24c1a9-6caf-402f-9038-5086bef7daeb

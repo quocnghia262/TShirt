@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+  <title>Add Address</title>
+</head>
+<body>
+
+<!-- Main Container  -->
+<div layout:fragment="content" class="main-container container">
+  <ul class="breadcrumb">
+    <li><a href="#"><i class="fa fa-home"></i></a></li>
+    <li><a href="#">Account</a></li>
+    <li><a href="#">My Account</a></li>
+    <li><a href="#">Add Address</a></li>
+  </ul>
+
+  <div class="row">
+    <div id="content" class="col-sm-12">
+      <h2 class="title">Thêm địa chỉ giao hàng</h2>
+      <form th:action="@{/add-address/save}" th:object="${address}" enctype="multipart/form-data"  method="post" class="form-horizontal account-register clearfix">
+        <fieldset id="address">
+          <legend>Địa chỉ giao hàng của bạn</legend>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Address Id</label>
+
+            <div class="col-sm-10">
+              <input type="text" class="form-control"  readonly="readonly" th:field="*{id}" placeholder="Address ID">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="company">Công ty</label>
+            <div class="col-sm-10">
+              <input type="text" th:field="*{company}" placeholder="Công ty" id="company" class="form-control">
+            </div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="address1">Địa chỉ chính</label>
+            <div class="col-sm-10">
+              <input required type="text" th:field="*{address1}" placeholder="Địa chỉ chính" id="address1" class="form-control">
+              <p th:if="${#fields.hasErrors('address1')}" th:errorclass="error" th:errors="*{address1}" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="address2">Địa chỉ cụ thể</label>
+            <div class="col-sm-10">
+              <input type="text" th:field="*{address2}" placeholder="Địa chỉ cụ thể" id="address2" class="form-control">
+            </div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="city">Thành phố</label>
+            <div class="col-sm-10">
+              <input required type="text" th:field="*{city}" placeholder="Thành phố" id="city" class="form-control">
+              <p th:if="${#fields.hasErrors('city')}" th:errorclass="error" th:errors="*{city}" />
+            </div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="postalCode">Mã bưu điện</label>
+            <div class="col-sm-10">
+              <input required type="text" th:field="*{postalCode}" placeholder="Mã bưu điện" id="postalCode" class="form-control">
+              <p th:if="${#fields.hasErrors('postalCode')}" th:errorclass="error" th:errors="*{postalCode}" />
+            </div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="country">Quốc gia</label>
+            <div class="col-sm-10">
+              <select required name="country_id" id="country" th:field="*{country}" class="form-control">
+                <option value=""> --- Please Select --- </option>
+                <option th:each="country : ${countries}" th:value="${country.name}" th:utext="${country.code}+' - '+${country.name}"></option>
+              </select>
+              <p th:if="${#fields.hasErrors('country')}" th:errorclass="error" th:errors="*{country}" />
+            </div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="state">Khu vực</label>
+            <div class="col-sm-10">
+              <input required type="text" th:field="*{state}" placeholder="Khu vực" id="state" class="form-control">
+              <p th:if="${#fields.hasErrors('state')}" th:errorclass="error" th:errors="*{state}" />
+            </div>
+          </div>
+        </fieldset>
+        <div class="bottom-form">
+          <input type="submit" value="Save" class="btn btn-primary btn btn-default pull-right" />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- //Main Container -->
+
+
+<th:block layout:fragment="script">
+  <script type="text/javascript">
+  </script>
+</th:block>
+</body>
+</html>

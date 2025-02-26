@@ -1,0 +1,7 @@
+
+M
+java:S3655&"7Call "Optional#isPresent()" before accessing the value.(èÃÆ×
+X
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ
+=
+java:S1905"'Remove this unnecessary cast to "List".(óƒìß

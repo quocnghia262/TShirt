@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Lịch Sử Đơn Hàng</title>
+</head>
+<body>
+
+<!-- Main Container  -->
+<div layout:fragment="content"  class="main-container container">
+    <ul class="breadcrumb">
+        <li><a href="#"><i class="fa fa-home"></i></a></li>
+        <li><a href="#">Lịch Sử Đơn Hàng</a></li>
+    </ul>
+
+    <div class="row">
+        <!--Middle Part Start-->
+        <div id="content" class="col-sm-9">
+            <div th:if="${param.success}">
+                <div class="alert alert-info">Đơn hàng của bạn đã được tạo thành công.</div>
+            </div>
+
+            <h2 class="title">Lịch Sử Đơn Hàng</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <td class="text-center">ID</td>
+                        <td class="text-left">Phương thức thanh toán</td>
+                        <td class="text-left">Phương thức giao hàng</td>
+                        <td class="text-center">Trạng thái</td>
+                        <td class="text-center">Ngày đặt</td>
+                        <td class="text-right">Tổng tiền</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="order : ${orders}">
+                        <!--<td class="text-center">
+                            <a th:href="@{/order-details(id=${order.id})}" target="_blank"><img width="85" class="img-thumbnail" th:title="${order.product.name}" th:alt="${order.product.name}" th:src="#adminPath+${order.product.getFullImage1Url()}"></a>
+                        </td>-->
+                        <td class="text-left"><a th:href="@{/order-details(id=${order.id})}" th:text="'# '+${order.id}"></a></td>
+                        <td class="text-center" th:text="${order.paymentMethod}"></td>
+                        <td class="text-center" th:text="${order.shippingMethod}"></td>
+                        <td class="text-center" th:text="${order.orderStatus}"></td>
+                        <td class="text-center" th:text='${order.orderDate.toString().replace(".0", "")}'></td>
+                        <td class="text-right"  th:text="${#numbers.formatDecimal(order.subTotal + order.shippingTotal, 1, 'POINT', 3, 'POINT') + 'đ'}"></td>
+                        <td class="text-center">
+                            <a class="btn btn-info" title="" data-toggle="tooltip" th:href="@{/order-details(id=${order.id})}" data-original-title="View"><i class="fa fa-eye"></i></a>
+                        </td>
+                        <td class="text-center" th:if='${order.orderStatus.equals("Pending")}'>
+                            <a class="btn btn-warning" title="" data-toggle="tooltip" th:href="@{/order-details(id=${order.id}, method='cancel')}" data-original-title="Cancel"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <!--Middle Part End-->
+
+        <div th:replace="/my-account/template/leftnav"></div>
+
+    </div>
+</div>
+<!-- //Main Container -->
+
+<th:block layout:fragment="script">
+</th:block>
+</body>
+</html>

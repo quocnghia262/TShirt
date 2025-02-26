@@ -1,0 +1,10 @@
+
+œ	java:S116"\Rename this field "add_edit_template" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»Åî²úÿÿÿÿJ$90ff225d-9f99-41a3-b10c-2a01b63b6ac9
+“	java:S116"XRename this field "list_template" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ò½ìùJ$32c8fe0d-8a88-49e6-8475-dc047271ed58
+˜	java:S116"XRename this field "list_redirect" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ã®±üÿÿÿÿJ$24d72a14-e052-42c2-a299-6a6d653b3312
+~
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞJ$686504db-c639-4950-8bdc-bfffae029cad
+
+java:S4684"@Replace this persistent entity with a simple POJO or DTO object.(îœ‡ıúÿÿÿÿJ$4fdba97b-f25a-426d-b143-0435e2b3d930
+|
+java:S4684*"@Replace this persistent entity with a simple POJO or DTO object.(Û¤©ÿJ$9e41a3c9-09a3-4ce4-bf4c-29b06bf09cf1

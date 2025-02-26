@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <title>Product Details</title>
+</head>
+<body>
+<section layout:fragment="header">
+    <h1>
+        Product Detail
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a th:href="@{/}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Product Details</li>
+    </ol>
+</section>
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Horizontal Form -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Product Detail</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form th:action="@{/product/save}" th:object="${product}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <div class="alert alert-danger" th:if="${error != null}">
+                        <p th:text="${error}"></p>
+                    </div>
+
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
+                        <p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Product Id</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control"  readonly="readonly" th:field="*{id}" placeholder="Product ID">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Category</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" th:field="*{category.id}">
+                                    <option value="">Select...</option>
+                                    <option th:each="categoryInfo : ${categories}" th:value="${categoryInfo.id}" th:utext="${categoryInfo.name}"/>
+                                </select>
+                                <p class="text-red" th:if="${#fields.hasErrors('category.id')}" th:errors="*{category.id}"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Brand</label>
+                            <div class="col-sm-10">
+                                <select class="form-control model" th:field="*{brand.id}">
+                                    <option value="">Select...</option>
+                                    <option th:each="modelInfo : ${listBrand}" th:value="${modelInfo.id}" th:utext="${modelInfo.name}"/>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control"  th:field="*{name}" />
+                                <p class="text-red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Description</label>
+                            <div class="col-sm-10">
+                                 <textarea name="description" rows="5" class="form-control"
+                                           id="description" th:field="*{description}"
+                                           placeholder="Description" /></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Stock Quantity</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" th:field="*{stockQty}" />
+                                <p class="text-red" th:if="${#fields.hasErrors('stockQty')}" th:errors="*{stockQty}"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Sale price</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" th:field="*{salePrice}" />
+                                <p class="text-red" th:if="${#fields.hasErrors('salePrice')}" th:errors="*{salePrice}"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Our price</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" th:field="*{ourPrice}" />
+                                <p class="text-red" th:if="${#fields.hasErrors('ourPrice')}" th:errors="*{ourPrice}"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Is Active ?</label>
+                            <div class="col-sm-10">
+                                <select th:field="*{isActive}" class="form-control">
+                                    <option value="true">Yes</option>
+                                    <option value="false">No</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Is Deleted ?</label>
+                            <div class="col-sm-10">
+                                <select th:field="*{isDeleted}" class="form-control">
+                                    <option value="false">No</option>
+                                    <option value="true">Yes</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- upload image -->
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                <label for="image_posted1">Upload image 1</label>
+                            </div>
+                            <div class="col-md-4">
+                                <input id="image_posted1" type="file" name="image_posted1" th:value="${image_posted1}" />
+                            </div>
+                            <div class="col-md-4">
+                                <input type="hidden" th:field="*{image1}"/>
+                                <img th:src="@{${product.getFullImage1Url()}}" style="width:150px;height:150px;" />
+                            </div>
+                        </div>
+
+                        <!-- upload image -->
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                <label for="image_posted2">Upload image 2</label>
+                            </div>
+                            <div class="col-md-4">
+                                <input id="image_posted2" type="file" name="image_posted2" th:value="${image_posted2}" />
+                            </div>
+                            <div class="col-md-4">
+                                <input type="hidden" th:field="*{image2}"/>
+                                <img th:src="@{${product.getFullImage2Url()}}" style="width:150px;height:150px;" />
+                            </div>
+                        </div>
+
+                        <!-- upload image -->
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                <label for="image_posted3">Upload image 3</label>
+                            </div>
+                            <div class="col-md-4">
+                                <input id="image_posted3" type="file" name="image_posted3" th:value="${image_posted3}" />
+                            </div>
+                            <div class="col-md-4">
+                                <img th:src="@{${product.getFullImage3Url()}}" style="width:150px;height:150px;" />
+                            </div>
+                        </div>
+
+                        <!-- upload image -->
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                <label for="image_posted4">Upload image 4</label>
+                            </div>
+                            <div class="col-md-4">
+                                <input id="image_posted4" type="file" name="image_posted4" th:value="${image_posted4}" />
+                            </div>
+                            <div class="col-md-4">
+                                <img th:src="@{${product.getFullImage4Url()}}" style="width:150px;height:150px;" />
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer center">
+                        <a th:href="@{/product/list}">
+                            <button type="button" class="btn btn-default"><i class="fa fa-right"></i> Cancel</button>
+                        </a>
+                        <button type="submit" class="btn btn-info pull-right"><i class="fa fa-save"></i> Save</button>
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+</div>
+
+<th:block layout:fragment="script">
+    <script type="text/javascript">
+        function getModels() {
+            var make = $(".make").val();
+            $.get( "../product/models", function( data ) {
+                $(".model").empty();
+                data.forEach(function(item, i) {
+                    var option = "<option value = " + item.id + ">" + item.name +  "</option>";
+                    $(".model").append(option);
+                });
+            });
+        };
+        $(document).ready(function() {
+            $(".make").change(function() {
+                getModels();
+            });
+        });
+    </script>
+</th:block>
+
+</body>
+
+</html>

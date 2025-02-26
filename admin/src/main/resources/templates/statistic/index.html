@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html layout:decorate="layout"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Statistic</title>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+    <link href="${url}/admin/css/fontawesome.min.css" rel="stylesheet"/>
+    <link href="${url}/admin/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="${url}/admin/css/templatemo-style.css" rel="stylesheet">
+    <link href="https://www.prepbootstrap.com/Content/shieldui-lite/dist/css/light/all.min.css" rel="stylesheet"
+          type="text/css"/>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+
+        .main-container {
+            background: #444e80;
+            color: #abafc6;
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        .year-stats {
+            white-space: nowrap;
+            max-height: 300px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .year-stats:hover {
+            overflow-x: auto;
+        }
+
+        /* SCROLL BAR STYLE (ONLY WORKS IN CHROME) */
+        /* Width */
+        ::-webkit-scrollbar {
+            height: 5px;
+            width: 100%;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #444e80;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #abafc6;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #5397d6;
+        }
+
+        .month-group {
+            cursor: pointer;
+            max-width: 70px;
+            height: 250px;
+            margin: 10px;
+            display: inline-block;
+        }
+
+        .bar {
+            background-color: #c6abab;
+            width: 30px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .month-group:hover .bar,
+        .selected .bar {
+            background: #5397d6;
+        }
+
+        .month-group:hover p,
+        .selected p {
+            color: #fff;
+        }
+
+        .h-25 {
+            height: 25%;
+        }
+
+        .h-50 {
+            height: 50%;
+        }
+
+        .h-75 {
+            height: 75%;
+        }
+
+        .h-100 {
+            height: 100%;
+        }
+
+        .stats-info {
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            position: relative;
+        }
+
+        .graph-container {
+            position: relative;
+        }
+
+        .percent {
+            display: block;
+            width: 120px;
+            height: 120px;
+        }
+
+        .circle {
+            stroke: #915db1;
+            fill: none;
+            stroke-width: 3;
+        }
+
+        .circle:nth-child(2) {
+            stroke: #e59f3c;
+        }
+
+        .circle:nth-child(3) {
+            stroke: #5397d6;
+        }
+
+        .circle:nth-child(4) {
+            stroke: #4cc790;
+        }
+
+        .graph-container p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .info p {
+            margin-bottom: 10px;
+        }
+
+        .info span {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<section layout:fragment="header">
+    <h1>
+        Thống kê
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a th:href="@{/}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+<div layout:fragment="content">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="container">
+                    <h3 class="text-white">
+                        Top 5 sản phẩm bán chạy nhất
+                    </h3>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Ảnh</th>
+                            <th>Tên</th>
+                            <th>Giá</th>
+                        </tr>
+                        </thead>
+                        <tbody id="top-5-products">
+                        <tr th:each="product : ${top5products}">
+                            <td th:text="${product.id}"></td>
+                            <td>
+                                <img style="width:50px;height:50px;" th:src="@{${product.getFullImage1Url()}}"/>
+                            </td>
+                            <td th:text="${product.name}"></td>
+                            <td th:text="${#numbers.formatDecimal(product.ourPrice, 0, 'POINT', 3, 'POINT') + 'đ'}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <h3 class="text-white mt-5">
+                        Top 5 người mua nhiều nhất
+                    </h3>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Customer ID</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Username</th>
+<!--                            <th>Company</th>-->
+<!--                            <th>Address1</th>-->
+<!--                            <th>Address2</th>-->
+<!--                            <th>City</th>-->
+<!--                            <th>State</th>-->
+<!--                            <th>Postal Code</th>-->
+<!--                            <th>Country</th>-->
+                        </tr>
+                        </thead>
+                        <tbody id="top-5-customers">
+                        <tr th:each="customer : ${top5customers}">
+                            <td th:text="${customer.id}"></td>
+                            <td th:text="${customer.getFullName()}"></td>
+                            <td th:text="${customer.phone}"></td>
+                            <td th:text="${customer.username}"></td>
+<!--                            <td th:text="${customer.company}"></td>-->
+<!--                            <td th:text="${customer.address1}"></td>-->
+<!--                            <td th:text="${customer.address2}"></td>-->
+<!--                            <td th:text="${customer.city}"></td>-->
+<!--                            <td th:text="${customer.state}"></td>-->
+<!--                            <td th:text="${customer.postalCode}"></td>-->
+<!--                            <td th:text="${customer.country.name}"></td>-->
+                        </tr>
+                        </tbody>
+                    </table>
+                    <h3 class="text-white mt-5">
+                        Thống kê doanh thu
+                    </h3>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Month/Year</th>
+                            <th scope="col"
+                                th:text="'Total:' + ${#numbers.formatDecimal(totalRevenue, 1, 'POINT', 3, 'POINT') + 'đ'}"></th>
+                        </tr>
+                        </thead>
+                        <tbody id="revenueStatistic">
+                        </tbody>
+                    </table>
+                    <div class="main-container mt-5">
+                        <div class="year-stats">
+                          <div class="month-group ml-5 selected">
+                            <div class="bar h-100"></div>
+                            <p class="month">Total</p>
+                          </div>
+                          <div class="month-group" th:each="entry : ${revenueStatistic}">
+                                <div class="bar"
+                                     th:attr="title=${#numbers.formatDecimal(entry.value, 1, 'POINT', 3, 'POINT') + 'đ'}"
+                                     data-toggle="tooltip"
+                                     th:style="'height:' + ${(entry.value / totalRevenue) * 100} + '%'"></div>
+                                <p class="month" th:text="${entry.key}"></p>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<th:block layout:fragment="script">
+    <script src="${url}/admin/js/jquery-3.3.1.min.js"></script>
+    <!-- https://jquery.com/download/ -->
+    <script src="${url}/admin/js/bootstrap.min.js"></script>
+    <script src="${url}/js/ajax.js"></script>
+    <script src="https://www.prepbootstrap.com/Content/shieldui-lite/dist/js/shieldui-lite-all.min.js"
+            type="text/javascript"></script>
+    <script>
+        function registryOpen() {
+            window.location.href = "registry";
+        }
+
+        jQuery(function ($) {
+            var data1 = [12, 3, 4, 2];
+            var data2 = [3, 9, 12, 14];
+
+            $(function () {
+                $("#chart1").shieldChart({
+                    exportOptions: {
+                        image: false,
+                        print: false
+                    },
+                    axisY: {
+                        title: {
+                            text: "Break-Down for selected quarter"
+                        }
+                    },
+                    dataSeries: [{
+                        seriesType: "pie",
+                        enablePointSelection: true,
+                        data: data1
+                    }]
+                });
+
+                $("#chart2").shieldChart({
+                    exportOptions: {
+                        image: false,
+                        print: false
+                    },
+                    seriesSettings: {
+                        pie: {
+                            enablePointSelection: true,
+                            borderColor: 'black',
+                            borderWidth: 3,
+                            dataPointText:
+                                {
+                                    style: {
+                                        fontWeight: 'bold'
+                                    }
+                                }
+                        }
+                    },
+                    axisY: {
+                        title: {
+                            text: "Break-Down for selected quarter"
+                        }
+                    },
+                    dataSeries: [{
+                        seriesType: "pie",
+                        data: data2
+                    }]
+                });
+            });
+        });
+    </script>
+</th:block>
+</body>
+
+</html>

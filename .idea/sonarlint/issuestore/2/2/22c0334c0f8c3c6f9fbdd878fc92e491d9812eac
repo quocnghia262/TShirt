@@ -1,0 +1,17 @@
+
+€	java:S112r"FDefine and throw a dedicated exception instead of using a generic one.(‰ÆáeJ$3c62a74d-33be-4d64-b6ac-05a9be5e3a93
+	java:S112q"FDefine and throw a dedicated exception instead of using a generic one.(Ÿ‹ŸİJ$dac3c08f-ad29-4482-9e30-e4f924cbe064
+‰
+java:S1192("MDefine a constant instead of duplicating this literal "home active " 7 times.(Ø›‹J$ff08761c-e235-438f-b1c5-dc2c2445001b
+’
+java:S1192A"QDefine a constant instead of duplicating this literal "classActivePages" 6 times.(×æäÚøÿÿÿÿJ$dba2678a-ff83-4a4e-9714-5801af912e75
+¦
+java:S6833"eReplace the "@Controller" annotation by "@RestController" and remove all "@ResponseBody" annotations.(íœ¡ñùÿÿÿÿJ$1e38efbf-3ea0-4aeb-83fe-8487e29647eb
+~
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞJ$a0bf9a67-fd71-4146-a733-c05a8196f9a1
+~
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞJ$8712bcb9-cb2e-471f-87f1-7c738b36d23f
+~
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞJ$1367eaf7-3237-491c-93dc-82fed7c6d5b3
+~
+java:S6813#"BRemove this field injection and use constructor injection instead.(êæÄŞJ$b78fc6ec-e562-4687-9c08-8bf288e65359

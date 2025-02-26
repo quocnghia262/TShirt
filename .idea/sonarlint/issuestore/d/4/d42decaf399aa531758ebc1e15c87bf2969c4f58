@@ -1,0 +1,13 @@
+
+Š
+java:S1192"IDefine a constant instead of duplicating this literal "category" 3 times.(“šÏÃúÿÿÿÿJ$48744396-ad4e-4805-8217-2242cce77d39
+–	java:S116"\Rename this field "add_edit_template" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–áà|J$74c5da9b-8e1d-4bf0-ba24-fc1ea909b0f4
+’	java:S116"XRename this field "list_template" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ä¹ıBJ$cd88e992-e42c-46fe-8205-4b276aa40441
+“	java:S116"XRename this field "list_redirect" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Øå¿¼J$3903a396-5b81-45fd-a757-51c3d9441c6d
+~
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞJ$a47bdcf9-ca5d-4632-bf7e-2dbc0edb50c5
+|
+java:S4684"@Replace this persistent entity with a simple POJO or DTO object.(’È—õJ$75848b7d-c062-47d5-af1c-0c95cd5f1bdc
+
+java:S4684*"@Replace this persistent entity with a simple POJO or DTO object.(ÅüŞ‹ıÿÿÿÿJ$c492621b-fd4f-4ccc-9b82-567bd4da4f35
+|	java:S1256"<This block of commented-out lines of code should be removed.(œ¥åáşÿÿÿÿJ$75b2ac93-1ed0-4f8a-b8b7-95b9b94ac968

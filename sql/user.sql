@@ -1,0 +1,1 @@
+INSERT INTO `tshirt-ecommerce`.user (user_id, first_name, is_active, is_deleted, last_name, password, username) VALUES (1, 'Admin', true, false, 'Admin', '$2a$12$RojzSeIAcZzdogtMua/07uxxm94P5k1zzRhVvk0zUGFpFTOGEgFgS', 'admin@viet.dev');

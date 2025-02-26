@@ -1,0 +1,13 @@
+
+r
+java:S3655Q"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(ÿâ‹øÿÿÿÿ8äËé‰2
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8æËé‰2
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8æËé‰2
+_
+java:S6813""BRemove this field injection and use constructor injection instead.(êæÄŞ8æËé‰2
+_
+java:S6813%"BRemove this field injection and use constructor injection instead.(êæÄŞ8æËé‰2
+—
+java:S6204o"zReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.(ÀÄ¿¥8ñËé‰2

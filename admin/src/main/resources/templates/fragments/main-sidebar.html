@@ -1,0 +1,120 @@
+<section class="sidebar" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+    <div class="user-panel">
+        <div class="pull-left image">
+            <img th:src="@{/dist/img/user2-160x160.jpg}" class="img-circle" alt="User Image" />
+        </div>
+        <div class="pull-left info">
+            <p sec:authentication="principal.username"></p>
+            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+    </div>
+    <ul class="sidebar-menu">
+        <li class="header">QUẢN LÝ CHUNG</li>
+        <li class="active treeview">
+            <a href="#">
+                <i class="fa fa-th"></i> <span>Quản lý Customer</span>
+                <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a th:href="@{/customer/list}"><i class="fa fa-circle-o"></i>Hiển thị</a></li>
+                <li><a th:href="@{/customer/add}"><i class="fa fa-circle-o"></i>Thêm khách hàng mua tại quầy</a></li>
+            </ul>
+        </li>
+        <li class="active treeview">
+            <a href="#">
+                <i class="fa fa-th"></i> <span>Quản lý User</span>
+                <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a th:href="@{/admin/add-admin}"><i class="fa fa-circle-o"></i>Thêm mới admin</a></li>
+            </ul>
+        </li>
+        <li class="active treeview">
+            <a href="#">
+                <i class="fa fa-th"></i> <span>Quản lý Bán hàng</span>
+                <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a th:href="@{/admin/tai-quay}"><i class="fa fa-circle-o"></i>Bán hàng tại quầy</a></li>
+            </ul>
+        </li>
+    </ul>
+    <ul class="sidebar-menu">
+        <li class="header">QUẢN LÝ KHO ÁO PHÔNG</li>
+        <li class="active treeview">
+            <a href="#">
+                <i class="fa fa-th"></i> <span>Quản lý áo phông</span>
+                <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+            </a>
+            <ul class="treeview-menu">
+                <li ><a th:href="@{/product/list}"><i class="fa fa-circle-o"></i>Danh sách áo phông</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul class="sidebar-menu">
+        <li class="active treeview">
+            <a href="#">
+                <i class="fa fa-th"></i> <span>Quản lý nhãn hiệu áo phông</span>
+                <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a th:href="@{/brand/list}"><i class="fa fa-circle-o"></i> Quản lý nhãn hiệu</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul class="sidebar-menu">
+        <li class="active treeview">
+            <a href="#">
+                <i class="fa fa-th"></i> <span>Quản lý danh mục áo phông</span>
+                <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a th:href="@{/category/list}"><i class="fa fa-circle-o"></i> Danh sách danh mục</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul class="sidebar-menu">
+        <li class="active treeview">
+            <a href="#">
+                <i class="fa fa-th"></i> <span>Quản lý đơn hàng</span>
+                <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a th:href="@{/order/list}"><i class="fa fa-circle-o"></i> Danh sách đơn hàng</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul class="sidebar-menu">
+        <li class="active treeview">
+            <a href="#">
+                <i class="fa fa-th"></i> <span>Thống kê</span>
+                <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a th:href="@{/statistic/}"><i class="fa fa-circle-o"></i> Hiển thị thống kê</a></li>
+            </ul>
+        </li>
+    </ul>
+
+<!--    <div sec:authorize="isAuthenticated()"><a th:href="@{/logout}"><i class="fa fa-circle-o"></i> Logout</a></div>-->
+</section>

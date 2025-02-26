@@ -1,0 +1,26 @@
+
+
+java:S11926"MDefine a constant instead of duplicating this literal "home active " 3 times.(€òÆ8æ§ïÄˆ2J$4c5025b9-cbcc-4cbb-b5f6-e2ce7387ef4b
+“
+java:S1192:"KDefine a constant instead of duplicating this literal "categories" 3 times.(”‹¼şÿÿÿÿ8ç§ïÄˆ2J$277b6b35-04f0-420c-b50d-0adc1a50f97c
+›	java:S116,"TRename this field "PAGE_SIZE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÕÆĞ•øÿÿÿÿ8îªïÄˆ2J$7d4cea27-ef92-431e-a40e-ef870c680e6b
+i
+java:S1170,"!Make this final field static too.(ÕÆĞ•øÿÿÿÿ8ïªïÄˆ2J$36c93b11-3e45-4b1f-bb3f-968ed8668773
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8ğªïÄˆ2J$d7d97916-6900-431c-934e-2be2c73a9d1c
+…
+java:S6813 "BRemove this field injection and use constructor injection instead.(êæÄŞ8ğªïÄˆ2J$2f682aba-c9ae-4635-b5ab-da892881aae2
+…
+java:S6813#"BRemove this field injection and use constructor injection instead.(êæÄŞ8ğªïÄˆ2J$9b8d9be9-8c29-4d37-a1f3-482e0a11b3d3
+…
+java:S6813&"BRemove this field injection and use constructor injection instead.(êæÄŞ8ğªïÄˆ2J$2c677fdc-81b4-4c2a-9095-1b2818420a2e
+…
+java:S6813)"BRemove this field injection and use constructor injection instead.(êæÄŞ8ğªïÄˆ2J$d08c614b-b397-4a49-8b56-2e6aca4de96f
+~	java:S125A"<This block of commented-out lines of code should be removed.(òÓÙ€8ùªïÄˆ2J$5ad27ddb-bfa8-42d6-9938-5d0c8577726d
+ƒ	java:S125E"<This block of commented-out lines of code should be removed.(°ØõÅùÿÿÿÿ8úªïÄˆ2J$0ee5e5fe-43c5-49fb-9094-4ef3a3290ee3
+‹
+java:S4488]"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(¢¿÷™8şªïÄˆ2J$47f025b0-b200-4b39-8c97-344612ff4e66
+†
+java:S1659g"CDeclare "makeId" and all following declarations on a separate line.(Âã÷é8ÿªïÄˆ2J$149b0bd4-51aa-4d81-b1d3-bea87dfae27e
+	java:S125ª"<This block of commented-out lines of code should be removed.(Úğú÷8‰«ïÄˆ2J$d40b92eb-f0d6-4f53-bd52-ae882391f295
+„	java:S125±"<This block of commented-out lines of code should be removed.(ÌÅõ¯ùÿÿÿÿ8Š«ïÄˆ2J$9776606c-abea-415d-bb81-ae25e61d446a

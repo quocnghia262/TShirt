@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Category</title>
+</head>
+<body>
+    <!-- Main Container  -->
+    <div layout:fragment="content" class="main-container container">
+        <ul class="breadcrumb">
+            <li><a href="#"><i class="fa fa-home"></i></a></li>
+            <li><a href="#">Danh mục</a></li>
+        </ul>
+
+        <div class="row">
+
+            <!--Left Part Start -->
+            <aside class="col-sm-4 col-md-3 content-aside" id="column-left">
+                <div class="module category-style">
+                    <h3 class="modtitle">Phân loại</h3>
+                    <div class="modcontent">
+                        <div class="box-category">
+                            <ul id="cat_accordion" class="list-group">
+                                <li class="">
+                                    <a th:href="@{/category}" class="cutom-parent"><b>Danh mục sản phẩm</b></a> <span class="dcjq-icon"></span>
+                                </li>
+                                <li class="" data-th-each="categoryInfo : ${categories}">
+                                    <a th:href="@{/category(id=${categoryInfo.id})}" class="cutom-parent" th:text="${categoryInfo.name}"></a> <span class="dcjq-icon"></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </aside>
+            <!--Left Part End -->
+            
+            <!--Middle Part Start-->
+            <div id="content" class="col-md-9 col-sm-8">
+                <div class="products-category">
+                    <h3 class="title-category " th:text="${category.name}"></h3>
+                    <div class="category-desc">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="banners">
+                                    <div>
+                                        <a  href="#"><img style="width: 100%; height: 185px" th:src="@{/image/catalog/demo/category/img-cate.jpg}" alt="img cate"><br></a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Filters -->
+                    <div class="product-filter product-filter-top filters-panel">
+                        <div class="row">
+                            <div class="col-md-5 col-sm-3 col-xs-12 view-mode">
+
+                                <div class="list-view">
+                                    <button class="btn btn-default grid active" data-view="grid" data-toggle="tooltip"  data-original-title="Grid"><i class="fa fa-th"></i></button>
+                                    <button class="btn btn-default list" data-view="list" data-toggle="tooltip" data-original-title="List"><i class="fa fa-th-list"></i></button>
+                                </div>
+
+                            </div>
+                            <!--<div class="short-by-show form-inline text-right col-md-7 col-sm-9 col-xs-12">
+                                <div class="form-group short-by">
+                                    <label class="control-label" for="input-sort">Sort By:</label>
+                                    <select id="input-sort" class="form-control"
+                                            onchange="location = this.value;">
+                                        <option value="" selected="selected">Default</option>
+                                        <option value="">Name (A - Z)</option>
+                                        <option value="">Name (Z - A)</option>
+                                        <option value="">Price (Low &gt; High)</option>
+                                        <option value="">Price (High &gt; Low)</option>
+                                        <option value="">Rating (Highest)</option>
+                                        <option value="">Rating (Lowest)</option>
+                                        <option value="">Model (A - Z)</option>
+                                        <option value="">Model (Z - A)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="input-limit">Show:</label>
+                                    <select id="input-limit" class="form-control" onchange="location = this.value;">
+                                        <option value="" selected="selected">15</option>
+                                        <option value="">25</option>
+                                        <option value="">50</option>
+                                        <option value="">75</option>
+                                        <option value="">100</option>
+                                    </select>
+                                </div>
+                            </div>-->
+                            <!-- <div class="box-pagination col-md-3 col-sm-4 col-xs-12 text-right">
+                                <ul class="pagination">
+                                    <li class="active"><span>1</span></li>
+                                    <li><a href="">2</a></li><li><a href="">&gt;</a></li>
+                                    <li><a href="">&gt;|</a></li>
+                                </ul>
+                            </div> -->
+                        </div>
+                    </div>
+                    <!-- //end Filters -->
+                    <div th:replace="/fragments/parts::partsData(productList=${productList})"></div>
+
+                    <nav th:if="${productList.totalPages > 0}" aria-label="Page navigation example">
+                        <ul th:each="pageNumber : ${pageNumbers}" class="pagination">
+                            <li th:class="${pageNumber == currentPage} ? 'page-item active' : 'page-item '">
+                                <a th:href="@{/category(id=${param.id}, size=${productList.size}, page=${pageNumber})}"
+                                   th:text="${pageNumber}" ></a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <!-- Filters -->
+                    <div class="product-filter product-filter-bottom filters-panel">
+                        <div class="row">
+                            <div class="col-sm-6 text-left"></div>
+                            <!--<div class="col-sm-6 text-right">Showing 1 to 12 of 12 (1 Pages)</div>-->
+                            <div class="col-sm-6 text-right">Showing results</div>
+                        </div>
+                    </div>
+                    <!-- //end Filters -->
+
+                </div>
+
+            </div>
+            <!--Middle Part End-->
+        </div>
+        <!--Middle Part End-->
+    </div>
+    <!-- //Main Container -->
+
+    <th:block layout:fragment="script">
+        <script type="text/javascript"><!--
+            // Check if Cookie exists
+            if($.cookie('display')){
+                view = $.cookie('display');
+            }else{
+                view = 'grid';
+            }
+            if(view) display(view);
+            //-->
+        </script>
+    </th:block>
+</body>
+</html>

@@ -1,0 +1,20 @@
+
+”
+java:S1192("XDefine a constant instead of duplicating this literal "customerRegistrationDto" 5 times.(î¼Â¹J$bc3c5dd5-0ae1-4b04-b587-94393ac4014d
+ˆ
+java:S1192%"LDefine a constant instead of duplicating this literal "home active" 5 times.(’à§J$f703305a-7f46-432e-a910-7c8b808a692e
+‘
+java:S1192%"UDefine a constant instead of duplicating this literal "classActiveMyAccount" 5 times.(’à§J$90aa539e-bf27-412c-98e2-4f5d51b7463f
+~
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞJ$a0c5b114-6fba-4062-9749-1f6dcfe85e1b
+~
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞJ$479fe043-43a6-4f0c-b2b7-7cb0c9cfaf70
+~
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞJ$84f18114-42f6-44b1-a5da-ec938d126b93
+f	java:S106?"+Replace this use of System.out by a logger.(İæŞ¶J$b909cf92-641d-4697-a2a9-3fe220cd7027
+
+java:S1854o"?Remove this useless assignment to local variable "newCustomer".(ê´³+8ò²ı“‡2J$0297bef8-d08a-46f2-9614-bd24fda2b649
+r
+java:S1481o"0Remove this unused "newCustomer" local variable.(ê´³+8ü²ı“‡2J$8da5c5a5-5fff-48a8-9846-aeafbd78aa91
+ƒ	java:S125q"<This block of commented-out lines of code should be removed.(å¤„Íùÿÿÿÿ8Àì„”‡2J$59d3f4ed-cc4e-4034-8bcf-2096f4e5a7c7
+ƒ	java:S125t"<This block of commented-out lines of code should be removed.(¯ç‘øÿÿÿÿ8ş²ı“‡2J$0cc45d95-bc3a-4caf-ae0d-571d274a657b

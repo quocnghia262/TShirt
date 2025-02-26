@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+  <title>Addresses</title>
+</head>
+<body>
+
+<!-- Main Container  -->
+<div layout:fragment="content" class="main-container container">
+  <ul class="breadcrumb">
+    <li><a href="#"><i class="fa fa-home"></i></a></li>
+    <li><a href="#">Account</a></li>
+    <li><a href="#">My Account</a></li>
+    <li><a href="#">Addresses</a></li>
+  </ul>
+
+  <div class="row">
+    <div id="content" class="col-sm-12">
+      <div style="display: flex; justify-content: space-between; align-items: center; ">
+        <h2 class="title">Danh sách địa chỉ</h2>
+        <a class="btn btn-success" id="button-add-address" th:href="@{/add-address}">Thêm địa chỉ giao hàng</a>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <table id="example1" class="table table-bordered table-striped dataTable" role="grid"
+                 aria-describedby="example1_info">
+            <thead class="thead">
+            <tr>
+              <th>ID</th>
+              <th>Address 1</th>
+              <th>Address 2</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Postal Code</th>
+              <th>Company</th>
+              <th>Country</th>
+              <th>Is Default</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="address : ${addresses}">
+              <td th:text="${address.id}"></td>
+              <td th:text="${address.address1}"></td>
+              <td th:text="${address.address2}"></td>
+              <td th:text="${address.city}"></td>
+              <td th:text="${address.state}"></td>
+              <td th:text="${address.postalCode}"></td>
+              <td th:text="${address.company}"></td>
+              <td th:text="${address.country.name}"></td>
+              <td th:text="${address.isDefault}"></td>
+              <td>
+                <a href="#" class="btn btn-primary btn-xs purple editView" title="Edit" th:href="@{'/address/edit/' + ${address.id}}"><i class="fa fa-edit"></i> Edit</a>
+                <a href="#" class="btn btn-danger btn-xs purple deleteView" title="Delete" th:href="@{'/address/edit/' + ${address.id}}"><i class="fa fa-trash-o"></i> Delete</a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- //Main Container -->
+
+
+<th:block layout:fragment="script">
+  <script type="text/javascript">
+    $(function () {
+      $('#example1').DataTable({
+        'paging'      : true,
+        'lengthChange': false,
+        'searching'   : true,
+        'ordering'    : true,
+        'info'        : true,
+        'autoWidth'   : false
+      })
+      jQuery('#example1_wrapper input').addClass("form-control input-sm"); // modify table search input
+    })
+  </script>
+</th:block>
+</body>
+</html>

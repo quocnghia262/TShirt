@@ -1,0 +1,9 @@
+
+‘
+java:S1192#"IDefine a constant instead of duplicating this literal "customer" 3 times.(Ú„„üÿÿÿÿ8­÷­â‡2J$bace12e4-a935-4cbb-b0db-b5898d571fe2
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8²÷­â‡2J$5f5f05df-b814-4517-a861-2c3565281384
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8²÷­â‡2J$2a4a237e-17e4-4705-8ac9-b33e0b7990fc
+ƒ
+java:S4684)"@Replace this persistent entity with a simple POJO or DTO object.(×«à³8¶÷­â‡2J$bb647ddd-6a51-4ab4-83df-da8c58de86bf

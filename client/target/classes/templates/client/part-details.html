@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Part Details</title>
+</head>
+<body>
+
+<!-- Main Container  -->
+<div layout:fragment="content" class="main-container container">
+    <ul class="breadcrumb">
+        <li><a th:href="@{/}"><i class="fa fa-home"></i></a></li>
+        <li><a href="#">Part Details</a></li>
+    </ul>
+
+    <div class="row">
+
+
+        <div th:replace="/fragments/search"></div>
+
+
+        <!--Middle Part Start-->
+        <div id="content" class="col-md-9 col-sm-8">
+
+            <form th:action="@{/add-to-cart}" th:object="${product}" method="post">
+
+                <div th:if="${param.error}">
+                    <div class="alert alert-danger">Số lượng đặt không thể quá số lượng tồn kho!</div>
+                </div>
+
+                <div th:if="${error == null}">
+
+                    <div class="product-view row">
+
+                        <div class="left-content-product">
+
+                            <div th:if="${param.addtocart}">
+                                <div class="alert alert-success">Sản phẩm đã được thêm vào giỏ hàng thành công!</div>
+                            </div>
+
+                            <div class="content-product-left class-honizol col-md-5 col-sm-12 col-xs-12">
+                                <div class="large-image  ">
+                                    <img itemprop="image" class="product-image-zoom" th:src="#{adminPath}+${product.getFullImage1Url()}" th:title="${product.name}" th:alt="${product.name}">
+                                </div>
+        <!--
+                                <a class="thumb-video pull-left" href="https://www.youtube.com/watch?v=HhabgvIIXik"><i class="fa fa-youtube-play"></i></a>
+        -->
+
+                                <div id="thumb-slider" class="yt-content-slider full_slider owl-drag" data-rtl="yes" data-autoplay="no" data-autoheight="no" data-delay="4" data-speed="0.6" data-margin="10"
+                                     data-items_column00="4" data-items_column0="4" data-items_column1="3" data-items_column2="4"  data-items_column3="1" data-items_column4="1"
+                                     data-arrows="yes" data-pagination="no" data-lazyload="yes" data-loop="no" data-hoverpause="yes">
+                                    <a data-index="0" class="img thumbnail " th:data-image="#{adminPath}+${product.getFullImage1Url()}" th:title="${product.name}">
+                                        <img th:src="#{adminPath}+${product.getFullImage1Url()}" th:title="${product.name}" th:alt="${product.name}">
+                                    </a>
+                                    <a data-index="1" class="img thumbnail " th:data-image="#{adminPath}+${product.getFullImage2Url()}" th:title="${product.name}">
+                                        <img th:src="#{adminPath}+${product.getFullImage2Url()}" th:title="${product.name}" th:alt="${product.name}">
+                                    </a>
+                                    <a data-index="2" class="img thumbnail " th:data-image="#{adminPath}+${product.getFullImage3Url()}" th:title="${product.name}">
+                                        <img th:src="#{adminPath}+${product.getFullImage3Url()}" th:title="${product.name}" th:alt="${product.name}">
+                                    </a>
+                                    <a data-index="3" class="img thumbnail " th:data-image="#{adminPath}+${product.getFullImage4Url()}" th:title="${product.name}">
+                                        <img th:src="#{adminPath}+${product.getFullImage4Url()}" th:title="${product.name}" th:alt="${product.name}">
+                                    </a>
+                                </div>
+                            </div>
+
+
+
+                            <div class="content-product-right col-md-7 col-sm-12 col-xs-12">
+                                <div class="title-product">
+                                    <h1 th:text="${product.name}"></h1>
+                                </div>
+                                <div class="product-label form-group">
+                                    <div class="product_page_price price" itemprop="offerDetails" itemscope="" itemtype="http://data-vocabulary.org/Offer">
+                                        <span class="price-new" itemprop="price"
+                                              th:text="${#numbers.formatDecimal(product.salePrice, 0, 'COMMA', 3, 'POINT') + 'đ'}"></span>
+                                        <span class="price-old"  th:text="${#numbers.formatDecimal(product.ourPrice, 0, 'COMMA', 3, 'POINT') + 'đ'}"></span>
+                                    </div>
+                                    <div class="stock"><span>Có sẵn:</span> <span class="status-stock">Tồn kho</span></div>
+                                </div>
+
+                                <div class="product-box-desc">
+                                    <div class="inner-box-desc">
+                                        <div class="price-tax" th:if="${product.brand}"><span th:text="'Brand: '+${product.brand.name}"></span></div>
+
+                                        <div class="price-tax"><span th:text="'Số lượng còn: '+${product.stockQty}"></span></div>
+                                    </div>
+                                </div>
+
+
+                                <div id="product">
+                                    <div class="form-group box-info-product" style="display: flex; gap: 10px">
+                                        <div class="option quantity" style="flex: 1">
+                                            <div class="input-group quantity-control">
+                                                <label>Số lượng</label>
+                                                <input class="form-control" id="quantity" type="text" name="quantity" value="1">
+                                                <input hidden="hidden" name="id" th:value="${product.id}" />
+                                                <span class="input-group-addon product_quantity_down" id="product_quantity_down">−</span>
+                                                <span class="input-group-addon product_quantity_up" id="product_quantity_up">+</span>
+                                            </div>
+                                        </div>
+                                        <select name="size" style="flex: 1; text-align: center" required>
+                                            <option value="">Chọn size</option>
+                                            <option value="S">S</option>
+                                            <option value="M">M</option>
+                                            <option value="L">L</option>
+                                            <option value="XL">XL</option>
+                                            <option value="XXL">XXL</option>
+                                        </select>
+                                        <div class="cart" style="flex: 1">
+                                            <input type="submit" data-toggle="tooltip" title="" value="Thêm Vào Giỏ Hàng" data-loading-text="Loading..." id="button-cart" class="btn btn-mega btn-lg" data-original-title="Thêm Vào Giỏ Hàng">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- end box info product -->
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Product Tabs -->
+                    <div class="producttab ">
+                        <div class="tabsslider  vertical-tabs col-xs-12">
+                            <ul class="nav nav-tabs col-lg-2 col-sm-3">
+                                <li class="active"><a data-toggle="tab" href="#tab-1">Description</a></li>
+                                <li class="item_nonactive"><a data-toggle="tab" href="#tab-2">Custom Tab</a></li>
+                            </ul>
+                            <div class="tab-content col-lg-10 col-sm-9 col-xs-12">
+                                <div id="tab-1" class="tab-pane fade active in">
+                                    <p th:text="${product.description}">
+                                    </p>
+                                    <!--<h3>
+                                        Features:</h3>
+                                    <p>
+                                        Unrivaled display performance</p>
+                                    <ul>
+                                        <li>
+                                            30-inch (viewable) active-matrix liquid crystal display provides breathtaking image quality and vivid, richly saturated color.</li>
+                                        <li>
+                                            Support for 2560-by-1600 pixel resolution for display of high definition still and video imagery.</li>
+                                        <li>
+                                            Wide-format design for simultaneous display of two full pages of text and graphics.</li>
+                                        <li>
+                                            Industry standard DVI connector for direct attachment to Mac- and Windows-based desktops and notetshirts</li>
+                                        <li>
+                                            Incredibly wide (170 degree) horizontal and vertical viewing angle for maximum visibility and color performance.</li>
+                                        <li>
+                                            Lightning-fast pixel response for full-motion digital video playback.</li>
+                                        <li>
+                                            Support for 16.7 million saturated colors, for use in all graphics-intensive applications.</li>
+                                    </ul>
+                                    <p>
+                                        Simple setup and operation</p>
+                                    <ul>
+                                        <li>
+                                            Single cable with elegant breakout for connection to DVI, USB and FireWire ports</li>
+                                        <li>
+                                            Built-in two-port USB 2.0 hub for easy connection of desktop peripheral devices.</li>
+                                        <li>
+                                            Two FireWire 400 ports to support iSight and other desktop peripherals</li>
+                                    </ul>
+                                    <p>
+                                        Sleek, elegant design</p>
+                                    <ul>
+                                        <li>
+                                            Huge virtual workspace, very small footprint.</li>
+                                        <li>
+                                            Narrow Bezel design to minimize visual impact of using dual displays</li>
+                                        <li>
+                                            Unique hinge design for effortless adjustment</li>
+                                        <li>
+                                            Support for VESA mounting solutions (Apple Cinema Display VESA Mount Adapter sold separately)</li>
+                                    </ul>-->
+
+
+                                </div>
+                                <div id="tab-2" class="tab-pane fade">
+                                    <p th:text="${product.description}">
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //Product Tabs -->
+                </div>
+            </form>
+
+
+            <!-- Related Products -->
+           <!-- <div class="related titleLine products-list grid module ">
+                <h3 class="modtitle">Related Products  </h3>
+
+                <div class="releate-products yt-content-slider products-list" data-rtl="no" data-loop="yes" data-autoplay="no" data-autoheight="no" data-autowidth="no" data-delay="4" data-speed="0.6" data-margin="30" data-items_column00="4" data-items_column0="4" data-items_column1="3" data-items_column2="2" data-items_column3="2" data-items_column4="1" data-arrows="yes" data-pagination="no" data-lazyload="yes" data-hoverpause="yes">
+                    <div class="product-layout product-grid">
+                        <div class="product-item-container item&#45;&#45;static">
+                            <div class="left-block">
+                                <div class="product-image-container second_img">
+                                    <a href="product.html" target="_self" title="Volup tatem accu">
+                                        <img th:src="@{/image/catalog/demo/product/270/1.jpg}" class="img-1 img-responsive" alt="image1">
+                                        <img th:src="@{/image/catalog/demo/product/270/2.jpg}" class="img-2 img-responsive" alt="image2">
+                                    </a>
+                                </div>
+                                <span class="label-product label-new">New </span>
+                                &lt;!&ndash;quickview&ndash;&gt;
+                                <div class="so-quickview">
+                                    <a class="iframe-link btn-button quickview quickview_handler visible-lg" href="quickview.html" title="Quick view" data-fancybox-type="iframe"><i class="fa fa-search"></i><span>Quick view</span></a>
+                                </div>
+                                &lt;!&ndash;end quickview&ndash;&gt;
+                            </div>
+                            <div class="right-block">
+                                <div class="button-group cartinfo&#45;&#45;static">
+
+                                    <button type="button" class="wishlist btn-button" title="Add to Wish List" onclick="wishlist.add('60');"><i class="fa fa-heart"></i></button>
+                                    <button type="button" class="addToCart" title="Thêm Vào Giỏ Hàng" onclick="cart.add('60 ');">
+                                        <span>Thêm Vào Giỏ Hàng </span>
+                                    </button>
+                                    <button type="button" class="compare btn-button" title="Compare this Product " onclick="compare.add('60');"><i class="fa fa-refresh"></i></button>
+                                </div>
+                                <h4><a href="product.html" title="Volup tatem accu" target="_self">Volup tatem accu</a></h4>
+                                <div class="rating">    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                </div>
+                                <div class="price">
+                                    <span class="price">$48.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-layout product-grid">
+                        <div class="product-item-container item&#45;&#45;static">
+                            <div class="left-block">
+                                <div class="product-image-container second_img">
+                                    <a href="product.html" target="_self" title="DPicanha porkcho">
+                                        <img th:src="@{/image/catalog/demo/product/270/2.jpg}" class="img-1 img-responsive" alt="image1">
+                                        <img th:src="@{/image/catalog/demo/product/270/3.jpg}" class="img-2 img-responsive" alt="image2">
+                                    </a>
+                                </div>
+
+                                &lt;!&ndash;quickview&ndash;&gt;
+                                <div class="so-quickview">
+                                    <a class="iframe-link btn-button quickview quickview_handler visible-lg" href="quickview.html" title="Quick view" data-fancybox-type="iframe"><i class="fa fa-search"></i><span>Quick view</span></a>
+                                </div>
+                                &lt;!&ndash;end quickview&ndash;&gt;
+                            </div>
+                            <div class="right-block">
+                                <div class="button-group cartinfo&#45;&#45;static">
+                                    <button type="button" class="wishlist btn-button" title="Add to Wish List" onclick="wishlist.add('60');"><i class="fa fa-heart"></i></button>
+                                    <button type="button" class="addToCart" title="Thêm Vào Giỏ Hàng" onclick="cart.add('60 ');">
+                                        <span>Thêm Vào Giỏ Hàng </span>
+                                    </button>
+                                    <button type="button" class="compare btn-button" title="Compare this Product " onclick="compare.add('60');"><i class="fa fa-refresh"></i></button>
+                                </div>
+                                <h4><a href="product.html" title="Picanha porkcho" target="_self">Picanha porkcho</a></h4>
+                                <div class="rating">    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                </div>
+                                <div class="price">
+                                    <span class="price">$89.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-layout product-grid">
+                        <div class="product-item-container item&#45;&#45;static">
+                            <div class="left-block">
+                                <div class="product-image-container second_img">
+                                    <a href="product.html" target="_self" title="Stickrum bresao">
+                                        <img th:src="@{/image/catalog/demo/product/270/3.jpg}" class="img-1 img-responsive" alt="image1">
+                                        <img th:src="@{/image/catalog/demo/product/270/4.jpg}" class="img-2 img-responsive" alt="image2">
+                                    </a>
+                                </div>
+                                <span class="label-product label-sale">-11%</span>
+                                &lt;!&ndash;quickview&ndash;&gt;
+                                <div class="so-quickview">
+                                    <a class="iframe-link btn-button quickview quickview_handler visible-lg" href="quickview.html" title="Quick view" data-fancybox-type="iframe"><i class="fa fa-search"></i><span>Quick view</span></a>
+                                </div>
+                                &lt;!&ndash;end quickview&ndash;&gt;
+                            </div>
+                            <div class="right-block">
+                                <div class="button-group cartinfo&#45;&#45;static">
+
+                                    <button type="button" class="wishlist btn-button" title="Add to Wish List" onclick="wishlist.add('60');"><i class="fa fa-heart"></i></button>
+                                    <button type="button" class="addToCart" title="Thêm Vào Giỏ Hàng" onclick="cart.add('60 ');">
+                                        <span>Thêm Vào Giỏ Hàng </span>
+                                    </button>
+                                    <button type="button" class="compare btn-button" title="Compare this Product " onclick="compare.add('60');"><i class="fa fa-refresh"></i></button>
+                                </div>
+                                <h4><a href="product.html" title="Stickrum bresao" target="_self">Stickrum bresao</a></h4>
+                                <div class="rating">    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                </div>
+                                <div class="price">
+                                    <span class="price-new">$85.00</span>
+                                    <span class="price-old">$96.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-layout product-grid">
+                        <div class="product-item-container item&#45;&#45;static">
+                            <div class="left-block">
+                                <div class="product-image-container second_img">
+                                    <a href="product.html" target="_self" title="Shoulder kevinis">
+                                        <img th:src="@{/image/catalog/demo/product/270/4.jpg}" class="img-1 img-responsive" alt="image1">
+                                        <img th:src="@{/image/catalog/demo/product/270/5.jpg}" class="img-2 img-responsive" alt="image2">
+                                    </a>
+                                </div>
+
+                                &lt;!&ndash;quickview&ndash;&gt;
+                                <div class="so-quickview">
+                                    <a class="iframe-link btn-button quickview quickview_handler visible-lg" href="quickview.html" title="Quick view" data-fancybox-type="iframe"><i class="fa fa-search"></i><span>Quick view</span></a>
+                                </div>
+                                &lt;!&ndash;end quickview&ndash;&gt;
+                            </div>
+                            <div class="right-block">
+                                <div class="button-group cartinfo&#45;&#45;static">
+
+                                    <button type="button" class="wishlist btn-button" title="Add to Wish List" onclick="wishlist.add('60');"><i class="fa fa-heart"></i></button>
+                                    <button type="button" class="addToCart" title="Thêm Vào Giỏ Hàng" onclick="cart.add('60 ');">
+                                        <span>Thêm Vào Giỏ Hàng </span>
+                                    </button>
+                                    <button type="button" class="compare btn-button" title="Compare this Product " onclick="compare.add('60');"><i class="fa fa-refresh"></i></button>
+                                </div>
+                                <h4><a href="product.html" title="Shoulder kevinis" target="_self">Shoulder kevinis</a></h4>
+                                <div class="rating">    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                </div>
+                                <div class="price">
+                                    <span class="price">$60.00</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="product-layout product-grid">
+                        <div class="product-item-container item&#45;&#45;static">
+                            <div class="left-block">
+                                <div class="product-image-container second_img">
+                                    <a href="product.html" target="_self" title="Remporum stick">
+                                        <img th:src="@{/image/catalog/demo/product/270/5.jpg}" class="img-1 img-responsive" alt="image1">
+                                        <img th:src="@{/image/catalog/demo/product/270/6.jpg}" class="img-2 img-responsive" alt="image2">
+                                    </a>
+                                </div>
+                                <span class="label-product label-new">New</span>
+                                &lt;!&ndash;quickview&ndash;&gt;
+                                <div class="so-quickview">
+                                    <a class="iframe-link btn-button quickview quickview_handler visible-lg" href="quickview.html" title="Quick view" data-fancybox-type="iframe"><i class="fa fa-search"></i><span>Quick view</span></a>
+                                </div>
+                                &lt;!&ndash;end quickview&ndash;&gt;
+                            </div>
+                            <div class="right-block">
+                                <div class="button-group cartinfo&#45;&#45;static">
+
+                                    <button type="button" class="wishlist btn-button" title="Add to Wish List" onclick="wishlist.add('60');"><i class="fa fa-heart"></i></button>
+                                    <button type="button" class="addToCart" title="Thêm Vào Giỏ Hàng" onclick="cart.add('60 ');">
+                                        <span>Thêm Vào Giỏ Hàng </span>
+                                    </button>
+                                    <button type="button" class="compare btn-button" title="Compare this Product " onclick="compare.add('60');"><i class="fa fa-refresh"></i></button>
+                                </div>
+                                <h4><a href="product.html" title="Remporum stick" target="_self">Remporum stick</a></h4>
+                                <div class="rating">    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                </div>
+                                <div class="price">
+                                    <span class="price">$65.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+
+            <!-- end Related  Products-->
+        </div>
+    </div>
+</div>
+<!--Middle Part End-->
+
+<th:block layout:fragment="script">
+   <script type="text/javascript" th:src="@{/js/themejs/homepage.js}"></script>
+    <script type="text/javascript" th:src="@{/js/Util.js}"></script>
+    <script th:inline="javascript">
+        $(document).ready(function() {
+            //display('grid');
+            $(".make").change(function() {
+                var url = /*[[@{/models}]]*/
+                getModels(url);
+            });
+
+            const plus = document.getElementById('product_quantity_up');
+            plus.addEventListener('click', () => {
+                const quantity = document.getElementById('quantity');
+                if (+quantity.value > 5) {
+                    alert('Số lượng đặt không thể quá 5! Vui lòng liên hệ với chúng tôi để được tư vấn thêm!');
+                    quantity.value = 5;
+                }
+            })
+        });
+    </script>
+</th:block>
+</body>
+</html>

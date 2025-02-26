@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+<section layout:fragment="header">
+    <h1>
+        Danh áo phông hoá đơn
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a th:href="@{/}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Danh áo phông hoá đơn</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div th:if="${param.success}">
+                        <div class="alert alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h4><i class="icon fa fa-check"></i> Success!</h4>
+                            Information saved successfully.
+                        </div>
+                    </div>
+                    <div th:if="${param.deleted}">
+                        <div class="alert alert-info alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h4><i class="icon fa fa-check"></i> Deleted!</h4>
+                            Information deleted successfully.
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="example1" class="table table-bordered table-striped dataTable" role="grid"
+                                   aria-describedby="example1_info">
+                                <thead class="thead">
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Order Date</th>
+                                    <th>Delivery Date</th>
+<!--                                    <th>Sub Total</th>-->
+<!--                                    <th>Shipping Total</th>-->
+<!--                                    <th>Tax Rate</th>-->
+<!--                                    <th>Tax Total</th>-->
+                                    <th>Grand Total</th>
+                                    <th>Order Status</th>
+                                    <th>Shipping Method</th>
+                                    <th>Payment Method</th>
+                                    <th>Description</th>
+                                    <th>View</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="order : ${orderList}">
+                                        <td th:text="${order.id}"></td>
+                                        <td th:text="${order.customer.getFullName()}"></td>
+                                        <td th:text='${order.orderDate.toString().replace(".0", "")}'></td>
+                                        <td th:text='${order.deliveryDate.toString().replace(".0", "")}'></td>
+<!--                                        <td th:text="${#numbers.formatDecimal(order.subTotal, 0, 'POINT', 3, 'POINT') + 'đ'}"></td>-->
+<!--                                        <td th:text="${order.shippingTotal != 0 ? #numbers.formatDecimal(order.shippingTotal, 0, 'COMMA', 3, 'POINT') + 'đ' : 0} "></td>-->
+<!--                                        <td th:text="${#numbers.formatDecimal(order.taxRate, 0, 'POINT', 3, 'POINT') + 'đ'}"></td>-->
+<!--                                        <td th:text="${#numbers.formatDecimal(order.taxTotal, 0, 'POINT', 3, 'POINT') + 'đ'}"></td>-->
+                                        <td th:text="${#numbers.formatDecimal(order.subTotal + order.shippingTotal, 1, 'POINT', 3, 'POINT') + 'đ'}"></td>
+                                        <td th:text="${order.orderStatus}"></td>
+                                        <td th:text="${order.shippingMethod}"></td>
+                                        <td th:text="${order.paymentMethod}"></td>
+                                        <td th:text="${order.description}"></td>
+                                        <td class="text-center">
+                                            <a class="btn btn-info" title="" data-toggle="tooltip" th:href="@{/order/order-details(id=${order.id})}" data-original-title="View"><i class="fa fa-eye"></i></a>
+                                        </td>
+                                        <td>
+                                            <div th:if='${order.orderStatus.equals("Pending")}'>
+                                                <a href="#" class="btn btn-primary btn-xs purple editView" title="Accept" th:href="@{'/order/accept/' + ${order.id}}"><i class="fa fa-edit"></i> Accept</a>
+                                                <a href="#" class="btn btn-danger btn-xs purple deleteView" title="Cancel" th:href="@{'/order/cancel/' + ${order.id}}"><i class="fa fa-trash-o"></i> Cancel</a>
+                                            </div>
+                                            <div th:if='${order.orderStatus.equals("Canceled")}'>Đơn hàng đã bị huỷ</div>
+                                            <div th:if='${order.orderStatus.equals("Accepted") && !order.paymentMethod.equals("Counter Sale")}'>Đơn hàng đang được vận chuyển</div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<th:block layout:fragment="script">
+    <script>
+        $(function () {
+            $('#example1').DataTable({
+                'paging'      : true,
+                'lengthChange': false,
+                'searching'   : true,
+                'ordering'    : true,
+                'info'        : true,
+                'autoWidth'   : true
+            })
+            jQuery('#example1_wrapper input').addClass("form-control input-sm"); // modify table search input
+        })
+    </script>
+</th:block>
+</body>
+</html>

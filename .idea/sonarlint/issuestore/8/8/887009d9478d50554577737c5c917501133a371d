@@ -1,0 +1,20 @@
+
+
+java:S1192o"FDefine a constant instead of duplicating this literal "error" 3 times.(§Òå‡ıÿÿÿÿ8ü×„†‰2J$6caf658b-174d-4b0d-869d-f67e7be89fb8
+
+java:S1192p"ZDefine a constant instead of duplicating this literal "/my-account/order-details" 4 times.(†î‘—8ü×„†‰2J$5992b426-8846-48ea-8a3a-7c24679afbfd
+
+java:S1192,"LDefine a constant instead of duplicating this literal "home active" 6 times.(’à§8ü×„†‰2J$b5fec366-6a6a-4f96-84bb-243eb00cce71
+˜
+java:S1192,"UDefine a constant instead of duplicating this literal "classActiveMyAccount" 6 times.(’à§8ü×„†‰2J$8631019a-31ec-479b-9aff-7c4e202c4fbb
+”	java:S117Š"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éÛ¾À8ı×„†‰2J$cf81072a-f9ec-4d65-9335-05ab3675aec0
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8Ø„†‰2J$b3e80f10-18ad-461b-a756-29fcc05da4ed
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8Ø„†‰2J$bdf04915-30a6-49e6-a3fe-8f5d8873b4fa
+…
+java:S6813""BRemove this field injection and use constructor injection instead.(êæÄŞ8Ø„†‰2J$7404b7e8-85b7-4643-b17f-c33f4283f3f0
+…
+java:S6813%"BRemove this field injection and use constructor injection instead.(êæÄŞ8Ø„†‰2J$d0710b40-3e6e-46fa-9d03-d7da101599d3
+ˆ
+java:S4684="@Replace this persistent entity with a simple POJO or DTO object.(ëó¹åÿÿÿÿÿ8™Ø„†‰2J$c9325654-ac2e-4f6b-b6f4-5e3dabee232f

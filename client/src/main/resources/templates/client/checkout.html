@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thanh toán</title>
+</head>
+<body>
+
+<!-- Main Container  -->
+<div class="main-container container" layout:fragment="content">
+    <ul class="breadcrumb">
+        <li><a href="#"><i class="fa fa-home"></i></a></li>
+        <li><a href="#">Thanh toán</a></li>
+    </ul>
+    <div class="row" th:if="${shoppingCart == null}">
+        <div class="col-sm-12">
+            <div class="alert alert-danger">You can't process checkout because your cart is empty !</div>
+        </div>
+    </div>
+    <div class="row" th:if="${shoppingCart != null}">
+        <!--Middle Part Start-->
+        <form enctype="multipart/form-data" method="post" th:action="@{/checkout}" th:object="${shoppingCart}">
+
+            <input th:field="*{id}" type="hidden"/>
+
+            <input th:field="*{customer.id}" type="hidden"/>
+            <input th:field="*{customer.isDeleted}" type="hidden"/>
+            <input th:field="*{customer.password}" type="hidden"/>
+            <input th:field="*{customer.username}" type="hidden"/>
+
+            <div class="col-sm-12" id="content">
+                <div th:if="${param.success}">
+                    <div class="alert alert-info">You've successfully changed your personal details!</div>
+                </div>
+
+                <div th:if="${param.cartEmpty}">
+                    <div class="alert alert-danger">Cart is empty so we cannot proceed !</div>
+                </div>
+
+
+                <div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
+                    <p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>
+                </div>
+
+
+                <h2 class="title">Thanh toán</h2>
+                <div class="so-onepagecheckout row">
+                    <div class="col-left col-sm-3">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><i class="fa fa-user"></i> Your Personal Details</h4>
+                            </div>
+                            <div class="panel-body">
+                                <fieldset id="account">
+                                    <div class="form-group required">
+                                        <label class="control-label" for="firstName">First Name</label>
+                                        <input disabled="disabled" class="form-control" id="firstName" placeholder="First Name"
+                                               th:field="*{customer.firstName}" type="text">
+                                        <p th:errorclass="error" th:errors="*{customer.firstName}"
+                                           th:if="${#fields.hasErrors('customer.firstName')}"/>
+                                    </div>
+                                    <div class="form-group required">
+                                        <label class="control-label" for="lastName">Last Name</label>
+                                        <input disabled="disabled" class="form-control" id="lastName" placeholder="Last Name"
+                                               th:field="*{customer.lastName}" type="text">
+                                        <p th:errorclass="error" th:errors="*{customer.lastName}"
+                                           th:if="${#fields.hasErrors('customer.lastName')}"/>
+                                    </div>
+                                    <div class="form-group required">
+                                        <label class="control-label" for="phone">Telephone</label>
+                                        <input disabled="disabled" class="form-control" id="phone" placeholder="Telephone"
+                                               th:field="*{customer.phone}"
+                                               type="tel">
+                                        <p th:errorclass="error" th:errors="*{customer.phone}"
+                                           th:if="${#fields.hasErrors('customer.phone')}"/>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><i class="fa fa-tshirt"></i> Your Address</h4>
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 10px;" class="panel-body">
+                                <div th:each="address : ${addresses}" style="display: flex; gap: 10px">
+                                    <input type="radio"
+                                           th:value="${address.id}"
+                                           th:id="${'address-' + address.id}"
+                                           name="selectedAddressId">
+                                    <label th:for="${'address-' + address.id}">
+                                        <span th:text="${address.address1}"></span>,
+                                        <span th:text="${address.city}"></span>,
+                                        <span th:text="${address.state}"></span>,
+                                        <span th:text="${address.postalCode}"></span>
+                                        <span th:text="${address.country.name}"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-right col-sm-9">
+                        <div class="col-sm-12">
+                            <div class="panel panel-default no-padding">
+                                <div class="col-sm-6 checkout-shipping-methods">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title"><i class="fa fa-truck"></i> Phương thức vận chuyển
+                                        </h4>
+                                    </div>
+                                    <div class="panel-body ">
+                                        <p>Vui lòng chọn phương thức vận chuyển phù hợp để sử dụng cho đơn hàng
+                                            này.</p>
+                                        <div class="radio">
+                                            <label>
+                                                <input checked="checked" th:field="*{shippingMethod}" type="radio"
+                                                       value="Free Shipping">
+                                                Vận chuyển đường bưu điện (Miễn phí ship, nhận từ 3 - 5 ngày)
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input th:field="*{shippingMethod}" type="radio"
+                                                       value="Flat Shipping">
+                                                Vận chuyển nếu khách hàng cần gấp (Khách hàng tự chi trả phí ship
+                                                ngoài) - 50.000vnđ
+                                            </label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6  checkout-payment-methods">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title"><i class="fa fa-credit-card"></i> Phương thức thanh
+                                            toán</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <p>Vui lòng chọn phương thức thanh toán phù hợp để sử dụng cho đơn hàng
+                                            này.</p>
+                                        <div class="radio">
+                                            <label>
+                                                <input checked="checked" th:field="*{paymentMethod}" type="radio"
+                                                       value="Cash On Delivery">
+                                                Thanh toán khi giao hàng
+                                            </label>
+                                        </div>
+
+                                        <div class="radio">
+                                            <label>
+                                                <input th:field="*{paymentMethod}" type="radio" value="Paypal">Thanh
+                                                toán bằng Paypal
+                                            </label>
+                                        </div>
+
+                                        <div class="radio">
+                                            <label>
+                                                <input th:field="*{paymentMethod}" type="radio" value="VNPay">
+                                                Thanh toán bằng VNPay
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title"><i class="fa fa-shopping-cart"></i> Giỏ hàng</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <td class="text-center">Ảnh sản phẩm</td>
+                                                <td class="text-left">Tên sản phẩm</td>
+                                                <td class="text-left">Số lượng</td>
+                                                <td class="text-right">Đơn giá</td>
+                                                <td class="text-right">Tổng tiền</td>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr th:each="cartItem : ${shoppingCart.getCartItemList()}">
+                                                <td class="text-center"><a
+                                                        th:href="@{/part-details(id=${cartItem.product.id})}"><img
+                                                        class="img-thumbnail"
+                                                        th:alt="${cartItem.product.name}"
+                                                        th:src="#{adminPath}+${cartItem.product.getFullImage1Url()}"
+                                                        th:title="${cartItem.product.name}" width="70px"/></a>
+                                                </td>
+                                                <td class="text-left"><a
+                                                        th:href="@{/part-details(id=${cartItem.product.id})}"
+                                                        th:text="${cartItem.product.name}"></a><br/></td>
+                                                <td class="text-center" th:text="${cartItem.quantity}"></td>
+                                                <td class="text-right"
+                                                    th:text="${#numbers.formatDecimal(cartItem.ourPrice, 0, 'COMMA', 3, 'POINT') + 'đ'}"></td>
+                                                <td class="text-right"
+                                                    th:text="${#numbers.formatDecimal(cartItem.totalPrice, 0, 'COMMA', 3, 'POINT') + 'đ'}"></td>
+                                            </tr>
+                                            </tbody>
+                                            <tfoot>
+                                            <tr>
+                                                <td class="text-right" colspan="4">
+                                                    <strong>Tổng Thanh Toán:</strong>
+                                                </td>
+                                                <td class="text-right"
+                                                    th:text="${#numbers.formatDecimal(shoppingCart.subTotal, 0, 'COMMA', 3, 'POINT') + 'đ'}"></td>
+                                            </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title"><i class="fa fa-pencil"></i> Ghi chú đơn hàng </h4>
+                                </div>
+                                <div class="panel-body">
+                                        <textarea class="form-control" rows="4"
+                                                  th:text="${shoppingCart.description}"></textarea>
+                                    <br>
+                                    <div class="buttons">
+                                        <div class="pull-right">
+                                            <a class="btn btn-warning" th:href="@{/view-cart}">Sửa </a> |
+                                            <input class="btn btn-primary" id="button-confirm" type="submit"
+                                                   value="Confirm Order">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Middle Part End -->
+        </form>
+
+    </div>
+</div>
+<!-- //Main Container -->
+
+
+<th:block layout:fragment="script">
+    <script type="text/javascript">
+    </script>
+</th:block>
+</body>
+</html>

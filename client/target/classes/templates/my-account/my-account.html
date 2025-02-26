@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>My Account</title>
+</head>
+<body>
+
+<!-- Main Container  -->
+<div layout:fragment="content"  class="main-container container">
+    <ul class="breadcrumb">
+        <li><a href="#"><i class="fa fa-home"></i></a></li>
+        <li><a href="#">Account</a></li>
+        <li><a href="#">My Account</a></li>
+    </ul>
+
+    <div class="row">
+        <!--Middle Part Start-->
+        <div class="col-sm-9" id="content">
+            <h2 class="title">Tài Khoản</h2>
+            <p class="lead">XIN CHÀO, <strong th:text="${customer.firstName}+' '+${customer.lastName}"></strong> - To update your account information.</p>
+
+            <form th:action="@{/my-account}" th:object="${customer}" enctype="multipart/form-data" method="post">
+
+                <div th:if="${param.success}">
+                    <div class="alert alert-info">You've successfully changed your personal details!</div>
+                </div>
+
+                <div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
+                    <p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>
+                </div>
+
+
+                <input type="hidden" th:field="*{id}" th:value="${id}"/>
+                <input type="hidden" th:field="*{isDeleted}" th:value="${isDeleted}"/>
+                <input type="hidden" th:field="*{password}" th:value="${password}"/>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <fieldset id="personal-details">
+                            <legend>Personal Details</legend>
+                            <div class="form-group required">
+                                <label for="firstName" class="control-label">First Name</label>
+                                <input type="text" class="form-control" th:field="*{firstName}" id="firstName" placeholder="First Name" th:value="${firstName}">
+                                <p th:if="${#fields.hasErrors('firstName')}" th:errorclass="error" th:errors="*{firstName}" />
+                            </div>
+                            <div class="form-group required">
+                                <label for="lastName" class="control-label">Last Name</label>
+                                <input type="text" class="form-control" th:field="*{lastName}" id="lastName" placeholder="Last Name" th:value="${lastName}">
+                                <p th:if="${#fields.hasErrors('lastName')}" th:errorclass="error" th:errors="*{lastName}" />
+                            </div>
+                            <div class="form-group required">
+                                <label for="username" class="control-label">Username (E-Mail Address)</label>
+                                <input type="email" readonly="readonly" class="form-control" th:field="*{username}" id="username" placeholder="E-Mail" th:value="${username}">
+                                <p th:if="${#fields.hasErrors('username')}" th:errorclass="error" th:errors="*{username}" />
+                            </div>
+                            <div class="form-group required">
+                                <label for="phone" class="control-label">Telephone</label>
+                                <input type="tel" class="form-control" th:field="*{phone}" id="phone" placeholder="Telephone" th:value="${phone}">
+                                <p th:if="${#fields.hasErrors('phone')}" th:errorclass="error" th:errors="*{phone}" />
+                            </div>
+                        </fieldset>
+                        <br>
+                    </div>
+                </div>
+
+<!--                <div class="row">-->
+<!--                    <div class="col-sm-6">-->
+<!--                        <fieldset id="address">-->
+<!--                            <legend>Shipping Address</legend>-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="company" class="control-label">Company</label>-->
+<!--                                <input type="text" th:field="*{company}" placeholder="Company" id="company" class="form-control" th:value="${company}">-->
+<!--                            </div>-->
+<!--                            <div class="form-group required">-->
+<!--                                <label for="address1" class="control-label">Address 1</label>-->
+<!--                                <input type="text" th:field="*{address1}" placeholder="Address 1" id="address1" class="form-control" th:value="${address1}">-->
+<!--                                <p th:if="${#fields.hasErrors('address1')}" th:errorclass="error" th:errors="*{address1}" />-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="address2" class="control-label">Address 2</label>-->
+<!--                                <input type="text" th:field="*{address2}" placeholder="Address 2" id="address2" class="form-control" th:value="${address2}">-->
+<!--                            </div>-->
+<!--                            <div class="form-group required">-->
+<!--                                <label for="city" class="control-label">City</label>-->
+<!--                                <input type="text" th:field="*{city}" placeholder="City" id="city" class="form-control" th:value="${city}">-->
+<!--                                <p th:if="${#fields.hasErrors('city')}" th:errorclass="error" th:errors="*{city}" />-->
+<!--                            </div>-->
+<!--                            <div class="form-group required">-->
+<!--                                <label for="postalCode" class="control-label">Post Code</label>-->
+<!--                                <input type="text" th:field="*{postalCode}" placeholder="Post Code" id="postalCode" class="form-control" th:value="${postalCode}">-->
+<!--                                <p th:if="${#fields.hasErrors('postalCode')}" th:errorclass="error" th:errors="*{postalCode}" />-->
+<!--                            </div>-->
+<!--                            <div class="form-group required">-->
+<!--                                <label class="control-label">Country</label>-->
+<!--                                <select th:field="*{country.id}" class="form-control">-->
+<!--                                    <option value=""> -&#45;&#45; Please Select -&#45;&#45; </option>-->
+<!--                                    <option th:each="countryInfo : ${countries}" th:value="${countryInfo.id}" th:utext="${countryInfo.code}+' - '+${countryInfo.name}"></option>-->
+<!--                                </select>-->
+<!--                                <p th:if="${#fields.hasErrors('country.id')}" th:errorclass="error" th:errors="*{country.id}" />-->
+<!--                            </div>-->
+<!--                            <div class="form-group required">-->
+<!--                                <label for="state" class="control-label">Region / State</label>-->
+<!--                                <input type="text" th:field="*{state}" placeholder="State" id="state" class="form-control" th:value="${state}">-->
+<!--                                <p th:if="${#fields.hasErrors('state')}" th:errorclass="error" th:errors="*{state}" />-->
+<!--                            </div>-->
+<!--                        </fieldset>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+                <div class="buttons clearfix">
+                    <div class="pull-right">
+                        <input type="submit" class="btn btn-md btn-primary" value="Save Changes">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!--Middle Part End-->
+
+        <div th:replace="/my-account/template/leftnav"></div>
+
+    </div>
+</div>
+<!-- //Main Container -->
+
+
+<th:block layout:fragment="script">
+</th:block>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <title>Customer Details</title>
+</head>
+<body>
+<section layout:fragment="header">
+    <h1>
+        Customer Detail
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a th:href="@{/}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Customer Details</li>
+    </ol>
+</section>
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Horizontal Form -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Customer Detail</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form th:action="@{/customer/save}" th:object="${customer}" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
+                        <p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Customer Id</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control"  readonly="readonly" th:field="*{id}" placeholder="Customer ID">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">First Name</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" th:field="*{firstName}" placeholder="First Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Last Name</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" th:field="*{lastName}" placeholder="Last Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Username</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" th:readonly="${id != null}" th:field="*{username}" placeholder="Username">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Password</label>
+
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" th:readonly="${id != null}" th:field="*{password}" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Phone</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" th:field="*{phone}" placeholder="Phone">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Is Deleted ?</label>
+                            <div class="col-sm-10">
+                                <select th:field="*{isDeleted}" class="form-control">
+                                    <option value="false">No</option>
+                                    <option value="true">Yes</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer center">
+                        <a th:href="@{/customer/list}">
+                            <button type="button" class="btn btn-default"><i class="fa fa-right"></i> Cancel</button>
+                        </a>
+                        <button type="submit" class="btn btn-info pull-right"><i class="fa fa-save"></i> Save</button>
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+</div>
+
+<th:block layout:fragment="script">
+    <script type="text/javascript">
+        function getModels() {
+            var make = $(".make").val();
+            $.get( "../product/models", function( data ) {
+                $(".model").empty();
+                data.forEach(function(item, i) {
+                    var option = "<option value = " + item.id + ">" + item.name +  "</option>";
+                    $(".model").append(option);
+                });
+            });
+        };
+        $(document).ready(function() {
+            $(".make").change(function() {
+                getModels();
+            });
+        });
+    </script>
+</th:block>
+
+</body>
+
+</html>

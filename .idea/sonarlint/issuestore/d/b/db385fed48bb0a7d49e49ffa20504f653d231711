@@ -1,0 +1,50 @@
+
+s
+java:S3740ó"/Provide the parametrized type for this generic.(›µ´ê8áşêïˆ2J$87c7f14b-110b-4350-9646-d6c4736385ff
+s
+java:S3740ó"/Provide the parametrized type for this generic.(›µ´ê8âşêïˆ2J$d3e7c4b5-793c-459c-ace9-90d6b5593c8b
+x
+java:S3740÷"/Provide the parametrized type for this generic.(ÔöŠÿÿÿÿÿ8âşêïˆ2J$60d206cf-fbda-40ed-88a1-d4e4390bdda8
+
+java:S11922"LDefine a constant instead of duplicating this literal "home active" 7 times.(‚ºæZ8âşêïˆ2J$e043984f-6bf2-4536-b59e-44b506d8ab66
+•
+java:S11927"MDefine a constant instead of duplicating this literal "shoppingCart" 6 times.(¤ Òüÿÿÿÿ8ãşêïˆ2J$2e22f9e0-744a-418a-94db-36eb0ea0051b
+–
+java:S11922"TDefine a constant instead of duplicating this literal "classActiveViewCart" 5 times.(‚ºæZ8ãşêïˆ2J$8f435d56-8b56-4645-baf7-fb92a9af0e9c
+”	java:S117Ù"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·ºÖ‰8ãşêïˆ2J$0887ad4e-7322-491c-8017-ab471f32afad
+™	java:S117Ú"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢•ş§úÿÿÿÿ8äşêïˆ2J$7d6b71a0-8ab5-4fd3-bdbb-f68bbe49c45e
+™	java:S117Û"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–âÚ›ıÿÿÿÿ8äşêïˆ2J$8013e585-7d17-4a40-ac5f-d6b692ea4bac
+™	java:S117İ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬Ñ¹²ùÿÿÿÿ8äşêïˆ2J$a9aa6fe3-605c-462b-a55f-c0f95088018c
+™	java:S117ì"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Âò“øşÿÿÿÿ8äşêïˆ2J$954f51cb-f060-46b1-a772-aad0c59562f6
+“	java:S117ğ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ó²Ş8äşêïˆ2J$3ae44862-f7fe-4f49-845b-45d1217cb0d4
+™	java:S117‹"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µä”Çşÿÿÿÿ8äşêïˆ2J$79dfb78a-7027-4c3a-b236-5711703bb856
+|
+java:S2589È"8Remove this expression which always evaluates to "false"(É “‡8–ÿêïˆ2J$7ae7da61-9009-426f-84de-cdae662c5c81
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8—ÿêïˆ2J$59794c2a-443d-4ee7-bf54-3b2ce5f8f0da
+…
+java:S6813 "BRemove this field injection and use constructor injection instead.(êæÄŞ8—ÿêïˆ2J$14a1a7e9-b8a7-4bc7-8695-cc8b62b18e4f
+…
+java:S6813#"BRemove this field injection and use constructor injection instead.(êæÄŞ8—ÿêïˆ2J$58d62a1d-fbcd-487b-bdf0-a5cfec0d1d98
+…
+java:S6813&"BRemove this field injection and use constructor injection instead.(êæÄŞ8˜ÿêïˆ2J$26915cf1-2c34-4c46-a061-97ab74e59433
+…
+java:S6813)"BRemove this field injection and use constructor injection instead.(êæÄŞ8˜ÿêïˆ2J$a2170baf-d979-4dc7-91c4-88f00aab4cb5
+…
+java:S6813,"BRemove this field injection and use constructor injection instead.(êæÄŞ8˜ÿêïˆ2J$3c83e832-8bee-4c77-9363-af4c2a7a65f5
+~	java:S125^"<This block of commented-out lines of code should be removed.(øÅ–8 ÿêïˆ2J$332deb60-f5e8-49ff-b923-b37a5e269d86
+Œ
+java:S4488c"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(°œ¿`8¡ÿêïˆ2J$59b4f857-6707-40ad-82e1-53a241858e57
+
+java:S4488"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(€ÀèĞ8£ÿêïˆ2J$c5b1761a-bb65-4eb7-835b-0bf00d3e2a3f
+€
+java:S1854‘"<Remove this useless assignment to local variable "newOrder".(‘õÙ•8¦ÿêïˆ2J$93efb21e-3206-444c-80fe-500f67b62d0e
+„
+java:S4684ª"@Replace this persistent entity with a simple POJO or DTO object.(¦¯8§ÿêïˆ2J$c718fd0a-38b2-47be-8b38-3549947c5865
+„	java:S125É"<This block of commented-out lines of code should be removed.(˜Ã°Ãùÿÿÿÿ8©ÿêïˆ2J$2be3f7b4-f4e2-45fc-b9d3-864481555600
+„	java:S125Ó"<This block of commented-out lines of code should be removed.(å¤„Íùÿÿÿÿ8©ÿêïˆ2J$da92ca4c-0145-4704-80f6-e33d1018da68
+„	java:S125Ö"<This block of commented-out lines of code should be removed.(—Ì„Æúÿÿÿÿ8©ÿêïˆ2J$762d985d-324b-4257-a3aa-98c80d98e35c
+q
+java:S1481‘"-Remove this unused "newOrder" local variable.(‘õÙ•8²ÿêïˆ2J$6b96a790-807a-48f3-b991-40caf9da65a1
+°
+java:S1130š"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(Ÿ¬Ã8³ÿêïˆ2J$a86c2a74-58fa-4d65-a8ff-6c45db24c302

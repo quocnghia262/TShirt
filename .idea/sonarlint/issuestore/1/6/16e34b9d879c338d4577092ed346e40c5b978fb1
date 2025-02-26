@@ -1,0 +1,17 @@
+
+‡
+java:S1192!"FDefine a constant instead of duplicating this literal "model" 3 times.(ßá¦ôøÿÿÿÿJ$90595c24-bd0a-445f-a6f9-aa668dee9fba
+…
+java:S1192$"IDefine a constant instead of duplicating this literal "listMake" 4 times.(Ò—”ŒJ$090fdb1b-6b81-45fa-ba46-124705b695d2
+œ	java:S116"\Rename this field "add_edit_template" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(òâäîüÿÿÿÿJ$eb7fe18e-a589-4592-b647-3d915260deb9
+˜	java:S116"XRename this field "list_template" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ùôîÙşÿÿÿÿJ$2dcce20b-573c-46b7-9cb8-62319a0190f9
+˜	java:S116"XRename this field "list_redirect" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ë‘¢¶şÿÿÿÿJ$238ad706-fce7-45fb-9a0c-921d0019b6ba
+~
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞJ$c5aaa36c-e648-4f6e-8da2-50ea55bbcb26
+~
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞJ$d7a1f14e-46c8-4338-aae3-6ecdbabb67d5
+|
+java:S4684 "@Replace this persistent entity with a simple POJO or DTO object.(Ä½ËªJ$cc7e3a64-0c9f-44df-86ff-5ae39c01e463
+
+java:S46845"@Replace this persistent entity with a simple POJO or DTO object.(Òá¡«ıÿÿÿÿJ$751f2f9d-046e-498f-853f-8eb41428f1f6
+|	java:S125D"<This block of commented-out lines of code should be removed.(òÁÍæùÿÿÿÿJ$54c6b916-5688-4ea2-9751-0dbbcb2a98cb

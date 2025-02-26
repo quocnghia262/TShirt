@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Register</title>
+</head>
+<body>
+
+<!-- Main Container  -->
+<div layout:fragment="content" class="main-container container">
+    <ul class="breadcrumb">
+        <li><a href="#"><i class="fa fa-home"></i></a></li>
+        <li><a href="#">Account</a></li>
+        <li><a href="#">Register</a></li>
+    </ul>
+
+    <div class="row">
+        <div id="content" class="col-sm-12">
+            <h2 class="title">Đăng ký tài khoản</h2>
+            <p>Nếu bạn đã có tài khoản, vui lòng đăng nhập tại <a th:href="@{/login}">trang đăng nhập</a>.</p>
+
+            <div th:if="${param.error}">
+                <div class="alert alert-danger">Đã xảy ra lỗi khi đăng ký.</div>
+            </div>
+
+            <form th:action="@{/register}" th:object="${customerRegistrationDto}" enctype="multipart/form-data"  method="post" class="form-horizontal account-register clearfix">
+                <div th:if="${param.success}">
+                    <div class="alert alert-info">Bạn đã đăng ký tài khoản thành công!</div>
+                </div>
+
+                <div th:if="${param.email}">
+                    <div class="alert alert-danger">
+                        Đã có người dùng đăng ký với tên người dùng/email được cung cấp.
+                    </div>
+                </div>
+
+                <div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
+                    <p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>
+                </div>
+
+
+                <fieldset id="account">
+                    <legend>Thông tin cá nhân của bạn</legend>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="firstName">Tên</label>
+                        <div class="col-sm-10">
+                            <input required type="text" th:field="*{firstName}" placeholder="Tên" id="firstName"  class="form-control">
+                            <p th:if="${#fields.hasErrors('firstName')}" th:errorclass="error" th:errors="*{firstName}" />
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="lastName">Họ</label>
+                        <div class="col-sm-10">
+                            <input required type="text" th:field="*{lastName}" placeholder="Họ" id="lastName" class="form-control">
+                            <p th:if="${#fields.hasErrors('lastName')}" th:errorclass="error" th:errors="*{lastName}" />
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="username">Tên đăng nhập (email)</label>
+                        <div class="col-sm-10">
+                            <input required type="email" th:field="*{username}" placeholder="Tên đăng nhập" id="username" class="form-control">
+                            <p th:if="${#fields.hasErrors('username')}" th:errorclass="error" th:errors="*{username}" />
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="phone">Số điện thoại</label>
+                        <div class="col-sm-10">
+                            <input required type="tel" placeholder="Số điện thoại" th:field="*{phone}" id="phone" class="form-control">
+                            <p th:if="${#fields.hasErrors('phone')}" th:errorclass="error" th:errors="*{phone}" />
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset id="address">
+                    <legend>Địa chỉ giao hàng của bạn</legend>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="company">Công ty</label>
+                        <div class="col-sm-10">
+                            <input type="text" th:field="*{company}" placeholder="Công ty" id="company" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="address1">Địa chỉ chính</label>
+                        <div class="col-sm-10">
+                            <input required type="text" th:field="*{address1}" placeholder="Địa chỉ chính" id="address1" class="form-control">
+                            <p th:if="${#fields.hasErrors('address1')}" th:errorclass="error" th:errors="*{address1}" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="address2">Địa chỉ cụ thể</label>
+                        <div class="col-sm-10">
+                            <input type="text" th:field="*{address2}" placeholder="Địa chỉ cụ thể" id="address2" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="city">Thành phố</label>
+                        <div class="col-sm-10">
+                            <input required type="text" th:field="*{city}" placeholder="Thành phố" id="city" class="form-control">
+                            <p th:if="${#fields.hasErrors('city')}" th:errorclass="error" th:errors="*{city}" />
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="postalCode">Mã bưu điện</label>
+                        <div class="col-sm-10">
+                            <input required type="text" th:field="*{postalCode}" placeholder="Mã bưu điện" id="postalCode" class="form-control">
+                            <p th:if="${#fields.hasErrors('postalCode')}" th:errorclass="error" th:errors="*{postalCode}" />
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="country">Quốc gia</label>
+                        <div class="col-sm-10">
+                            <select required name="country_id" id="country" th:field="*{country}" class="form-control">
+                                <option value=""> --- Please Select --- </option>
+                                <option th:each="country : ${countries}" th:value="${country.name}" th:utext="${country.code}+' - '+${country.name}"></option>
+                            </select>
+                            <p th:if="${#fields.hasErrors('country')}" th:errorclass="error" th:errors="*{country}" />
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="state">Khu vực</label>
+                        <div class="col-sm-10">
+                            <input required type="text" th:field="*{state}" placeholder="Khu vực" id="state" class="form-control">
+                            <p th:if="${#fields.hasErrors('state')}" th:errorclass="error" th:errors="*{state}" />
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Thông tin xác thực của bạn</legend>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="password">Mật khẩu</label>
+                        <div class="col-sm-10">
+                            <input type="password" th:field="*{password}" minlength="5" required placeholder="Mật Khẩu" id="password" class="form-control">
+                            <p th:if="${#fields.hasErrors('password')}" th:errorclass="error" th:errors="*{password}" />
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="confirm">Mật khẩu xác nhận</label>
+                        <div class="col-sm-10">
+                            <input type="password" th:field="*{confirm}" minlength="5" required placeholder="Mật khẩu xác nhận" id="confirm" class="form-control">
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="bottom-form">
+                    <input type="submit" value="Register" class="btn btn-primary btn btn-default pull-right" />
+                </div>
+
+                <!--<div class="buttons">
+                    <div class="pull-right">
+                        I have read and agree to the <a href="#" class="agree"><b>Pricing Tables</b></a>
+                        <input class="box-checkbox" type="checkbox" name="agree" value="1"> &nbsp;
+                        <input type="submit" value="Continue" class="btn btn-primary">
+                    </div>
+                </div>-->
+            </form>
+        </div>
+    </div>
+</div>
+<!-- //Main Container -->
+
+
+<th:block layout:fragment="script">
+    <script type="text/javascript">
+    </script>
+</th:block>
+</body>
+</html>

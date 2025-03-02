@@ -21,7 +21,7 @@ public class Material {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "brand_id")
+    @Column(name = "material_id")
     private Long id;
 
     @Column(name = "name")
@@ -33,7 +33,7 @@ public class Material {
 
     @Override
     public String toString() {
-        return "Brand{" +
+        return "Material{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", isDeleted=" + isDeleted +

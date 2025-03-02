@@ -8,12 +8,11 @@
 <body>
 <section layout:fragment="header">
     <h1>
-        Category List
-        <small>Control panel</small>
+        Quản lý danh mục
     </h1>
     <ol class="breadcrumb">
-        <li><a th:href="@{/}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li><a th:href="@{/}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+        <li class="active">Danh mục</li>
     </ol>
 </section>
 <div layout:fragment="content">
@@ -21,13 +20,13 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Category List</h3>
+                    <h3 class="box-title">Danh sách danh mục</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
                     <div class="box-footer center">
                         <a th:href="@{/category/add}">
-                            <button type="button" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Add new
+                            <button type="button" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Thêm mới
                             </button>
                         </a>
                     </div>
@@ -53,15 +52,15 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Tên</th>
-                                    <th>Trạng thái hoạt động</th>
-                                    <th>Actions</th>
+                                    <th>Trạng thái</th>
+                                    <th>Hành động</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                     <tr th:each="category : ${listCategories}">
                                         <td th:text="${category.id}"></td>
                                         <td th:text="${category.name}"></td>
-                                        <td th:text="${category.isActive}"></td>
+                                        <td th:text="${category.isActive ? 'Hoạt động' : 'Ngừng hoạt động'}"></td>
 
                                         <td>
                                             <a href="#" class="btn btn-primary btn-xs purple editView" title="Edit" th:href="@{'/category/edit/' + ${category.id}}"><i class="fa fa-edit"></i> Edit</a>

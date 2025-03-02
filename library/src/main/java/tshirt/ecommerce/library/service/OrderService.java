@@ -28,6 +28,7 @@ public class OrderService {
 
     @Autowired
     private OrderDetailRepository orderDetailRepository;
+
     @Autowired
     private CustomerRepository customerRepository;
 
@@ -41,6 +42,7 @@ public class OrderService {
     public Order save(Order order){
         return orderRepository.save(order);
     }
+
     public Order saveOrder(ShoppingCart shoppingCart) {
         Order order = new Order();
         order.setCustomer(shoppingCart.getCustomer());
@@ -77,8 +79,7 @@ public class OrderService {
             orderDetailList.add(orderDetail);
         }
         //set order details in list
-        order.setOrderDetailList(orderDetailList);
-
+        orderDetailRepository.saveAll(orderDetailList);
         orderRepository.save(order);
 
         return order;

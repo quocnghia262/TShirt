@@ -15,6 +15,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/brand")
 public class BrandController {
+
     @Autowired
     private BrandService brandService;
 

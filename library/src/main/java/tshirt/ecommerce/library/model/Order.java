@@ -15,6 +15,7 @@ import java.util.List;
 @Entity
 @Table(name="orders")
 public class Order {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
@@ -46,7 +47,6 @@ public class Order {
     @Column(name = "tax_rate")
     private Float taxRate;
 
-
     @Column(name = "tax_total")
     private Float taxTotal;
 
@@ -56,19 +56,17 @@ public class Order {
     @Column(name = "order_status")
     private String orderStatus;
 
-    @Column(name = "shipping_method")
-    private String shippingMethod;
-
-    @Column(name = "payment_method")
-    private String paymentMethod;
-
     @Column(name = "is_deleted")
     private Boolean isDeleted;
 
     @Column(name = "description")
     private String description;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "order")
-    private List<OrderDetail> orderDetailList;
+    @Column(name = "shipping_method")
+    private String shippingMethod;
+
+    @Column(name = "payment_method")
+    private String paymentMethod;
+
 
 }

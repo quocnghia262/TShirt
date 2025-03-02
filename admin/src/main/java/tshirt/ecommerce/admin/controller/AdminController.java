@@ -24,6 +24,7 @@ import java.util.List;
 @RequestMapping("/admin")
 @Controller
 public class AdminController {
+
     @Autowired
     private UserRepository userRepository;
 

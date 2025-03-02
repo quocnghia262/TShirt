@@ -1,10 +1,6 @@
 package tshirt.ecommerce.admin.config;
 
 
-import tshirt.ecommerce.library.service.*;
-import tshirt.ecommerce.library.service.impl.CustomerServiceImpl;
-import tshirt.ecommerce.library.service.impl.UserServiceImpl;
-import tshirt.ecommerce.library.util.Utility;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -14,27 +10,42 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import tshirt.ecommerce.library.service.AddressService;
+import tshirt.ecommerce.library.service.BrandService;
+import tshirt.ecommerce.library.service.CategoryService;
+import tshirt.ecommerce.library.service.ColorService;
+import tshirt.ecommerce.library.service.CountryService;
+import tshirt.ecommerce.library.service.CustomerService;
+import tshirt.ecommerce.library.service.MaterialService;
+import tshirt.ecommerce.library.service.OrderService;
+import tshirt.ecommerce.library.service.ProductService;
+import tshirt.ecommerce.library.service.SizeService;
+import tshirt.ecommerce.library.service.StatisticService;
+import tshirt.ecommerce.library.service.UserService;
+import tshirt.ecommerce.library.service.impl.CustomerServiceImpl;
+import tshirt.ecommerce.library.service.impl.UserServiceImpl;
+import tshirt.ecommerce.library.util.Utility;
 
 @Configuration
 @EnableWebSecurity
 public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
     @Bean
-    public CustomerService customerService(){
+    public CustomerService customerService() {
         return new CustomerServiceImpl();
     }
 
     @Bean
-    public ProductService productService(){
+    public ProductService productService() {
         return new ProductService();
     }
 
     @Bean
-    public CategoryService categoryService(){
+    public CategoryService categoryService() {
         return new CategoryService();
     }
 
     @Bean
-    public UserService userService(){
+    public UserService userService() {
         return new UserServiceImpl();
     }
 
@@ -44,30 +55,47 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public StatisticService statisticService(){
+    public StatisticService statisticService() {
         return new StatisticService();
     }
 
     @Bean
-    public OrderService orderService(){
+    public OrderService orderService() {
         return new OrderService();
     }
 
     @Bean
-    public AddressService addressService(){
+    public AddressService addressService() {
         return new AddressService();
     }
+
     @Bean
-    public BrandService modelService(){
+    public BrandService modelService() {
         return new BrandService();
     }
 
     @Bean
-    public CountryService countryService(){
+    public CountryService countryService() {
         return new CountryService();
     }
+
     @Bean
-    public Utility utility(){
+    public ColorService colorService() {
+        return new ColorService();
+    }
+
+    @Bean
+    public MaterialService materialService() {
+        return new MaterialService();
+    }
+
+    @Bean
+    public SizeService sizeService() {
+        return new SizeService();
+    }
+
+    @Bean
+    public Utility utility() {
         return new Utility();
     }
 
@@ -89,15 +117,15 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers(
-                "/register**",
-                "/dist/**"
-                , "/plugins/**"
-                , "/bootstrap/**"
-                , "/extra/**"
-                , "/upload/**"
-                , "/favicon.ico")
+                        "/register**",
+                        "/dist/**"
+                        , "/plugins/**"
+                        , "/bootstrap/**"
+                        , "/extra/**"
+                        , "/upload/**"
+                        , "/favicon.ico")
                 .permitAll()
-        .anyRequest().authenticated()
+                .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -110,6 +138,5 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/login?logout")
                 .permitAll();
-
     }
 }

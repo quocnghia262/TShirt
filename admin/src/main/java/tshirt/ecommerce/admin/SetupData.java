@@ -1,15 +1,32 @@
 package tshirt.ecommerce.admin;
 
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import tshirt.ecommerce.library.model.*;
-import tshirt.ecommerce.library.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
+import tshirt.ecommerce.library.model.Brand;
+import tshirt.ecommerce.library.model.Category;
+import tshirt.ecommerce.library.model.Color;
+import tshirt.ecommerce.library.model.Country;
+import tshirt.ecommerce.library.model.Material;
+import tshirt.ecommerce.library.model.ProductVariant;
+import tshirt.ecommerce.library.model.Role;
+import tshirt.ecommerce.library.model.Size;
+import tshirt.ecommerce.library.model.User;
+import tshirt.ecommerce.library.repository.BrandRepository;
+import tshirt.ecommerce.library.repository.CategoryRepository;
+import tshirt.ecommerce.library.repository.ColorRepository;
+import tshirt.ecommerce.library.repository.CountryRepository;
+import tshirt.ecommerce.library.repository.MaterialRepository;
+import tshirt.ecommerce.library.repository.ProductVariantRepository;
+import tshirt.ecommerce.library.repository.RoleRepository;
+import tshirt.ecommerce.library.repository.SizeRepository;
+import tshirt.ecommerce.library.repository.UserRepository;
 
 import javax.transaction.Transactional;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -22,6 +39,18 @@ public class SetupData implements ApplicationListener<ContextRefreshedEvent> {
 
     @Autowired
     private CategoryRepository categoryRepository;
+
+    @Autowired
+    private MaterialRepository materialRepository;
+
+    @Autowired
+    private SizeRepository sizeRepository;
+
+    @Autowired
+    private ColorRepository colorRepository;
+
+    @Autowired
+    private ProductVariantRepository productVariantRepository;
 
     @Autowired
     private CountryRepository countryRepository;
@@ -51,14 +80,27 @@ public class SetupData implements ApplicationListener<ContextRefreshedEvent> {
         //Setup brands
         setupBrands();
 
+        //setup materials
+        setupMaterials();
+
+        //setup product variant
+        setupProductVariants();
+
+        //setup sizes
+        setupSizes();
+
+        //Setup colors
+        setupColors();
+
         //Setup users
         setupUsers();
 
         //Setup countries
         setupCountries();
     }
+
     @Transactional
-    public void setupCountries(){
+    public void setupCountries() {
         Country country = new Country();
         country.setName("Viet Nam");
         country.setCode("1");
@@ -76,7 +118,7 @@ public class SetupData implements ApplicationListener<ContextRefreshedEvent> {
     }
 
     @Transactional
-    public void setupUsers(){
+    public void setupUsers() {
         Role admin = roleRepository.findByName("ADMIN");
         Role customer = roleRepository.findByName("CUSTOMER");
 
@@ -102,7 +144,7 @@ public class SetupData implements ApplicationListener<ContextRefreshedEvent> {
     }
 
     @Transactional
-    public void setupBrands(){
+    public void setupBrands() {
         Brand b1 = new Brand();
         b1.setName("Dior");
         b1.setIsDeleted(false);
@@ -145,7 +187,7 @@ public class SetupData implements ApplicationListener<ContextRefreshedEvent> {
     }
 
     @Transactional
-    public void setupCategories(){
+    public void setupCategories() {
         Category c1 = new Category();
         c1.setName("Nam");
         c1.setDescription("Áo phông dành cho nam giới");
@@ -166,6 +208,68 @@ public class SetupData implements ApplicationListener<ContextRefreshedEvent> {
         c3.setIsActive(true);
         c3.setIsDeleted(false);
         createCategoryIfNotFound(c3);
+    }
+
+    @Transactional
+    public void setupMaterials() {
+        List<String> materials = Arrays.asList(
+                "Cotton 100%", "Cotton Compact", "Cotton Spandex",
+                "Polyester (PE)", "Vải Thun CVC", "Vải Thun TC (Tixi)",
+                "Vải Thun Rayon", "Vải Thun Bamboo (Sợi Tre)", "Vải Thun Modal"
+        );
+
+        for (String name : materials) {
+            Material material = new Material();
+            material.setName(name);
+            material.setIsDeleted(false);
+            createMaterialIfNotFound(material);
+        }
+
+    }
+
+    @Transactional
+    public void setupSizes() {
+        List<String> sizes = Arrays.asList(
+                "S", "M", "L", "XL", "XXL"
+        );
+
+        for (String name : sizes) {
+            Size size = new Size();
+            size.setName(name);
+            size.setIsDeleted(false);
+            createSizeIfNotFound(size);
+        }
+
+    }
+
+    @Transactional
+    public void setupColors() {
+        List<String> colors = Arrays.asList(
+                "Xanh", "Đỏ", "Tím", "Vàng", "Đen"
+        );
+
+        for (String name : colors) {
+            Color color = new Color();
+            color.setName(name);
+            color.setIsDeleted(false);
+            createColorIfNotFound(color);
+        }
+
+    }
+
+    @Transactional
+    public void setupProductVariants() {
+        List<String> productVariants = Arrays.asList(
+                "Áo Phông Nam", "Áo Phông Nữ"
+        );
+
+        for (String name : productVariants) {
+            ProductVariant productVariant = new ProductVariant();
+            productVariant.setName(name);
+            productVariant.setIsDeleted(false);
+            createSizeIfNotFound(productVariant);
+        }
+
     }
 
     @Transactional
@@ -191,6 +295,54 @@ public class SetupData implements ApplicationListener<ContextRefreshedEvent> {
             category1 = categoryRepository.findByName(category.getName());
         }
         return category1;
+    }
+
+    @Transactional
+    public Material createMaterialIfNotFound(Material material) {
+        Material newMaterial = materialRepository.findByName(material.getName());
+        if (newMaterial == null) {
+            materialRepository.save(material);
+
+            //return saved object
+            newMaterial = materialRepository.findByName(material.getName());
+        }
+        return newMaterial;
+    }
+
+    @Transactional
+    public Size createSizeIfNotFound(Size size) {
+        Size newSize = sizeRepository.findByName(size.getName());
+        if (newSize == null) {
+            sizeRepository.save(size);
+
+            //return saved object
+            newSize = sizeRepository.findByName(size.getName());
+        }
+        return newSize;
+    }
+
+    @Transactional
+    public Color createColorIfNotFound(Color color) {
+        Color newClor = colorRepository.findByName(color.getName());
+        if (newClor == null) {
+            colorRepository.save(color);
+
+            //return saved object
+            newClor = colorRepository.findByName(color.getName());
+        }
+        return newClor;
+    }
+
+    @Transactional
+    public ProductVariant createSizeIfNotFound(ProductVariant productVariant) {
+        ProductVariant newProductVariant = productVariantRepository.findByName(productVariant.getName());
+        if (newProductVariant == null) {
+            productVariantRepository.save(productVariant);
+
+            //return saved object
+            newProductVariant = productVariantRepository.findByName(productVariant.getName());
+        }
+        return newProductVariant;
     }
 
     @Transactional
@@ -222,4 +374,5 @@ public class SetupData implements ApplicationListener<ContextRefreshedEvent> {
         }
         return country1;
     }
+
 }

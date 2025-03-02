@@ -1,12 +1,14 @@
 package tshirt.ecommerce.library.repository;
 
 
+import org.springframework.stereotype.Repository;
 import tshirt.ecommerce.library.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
+@Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("select p from Product p " +
             "where 1=1 and is_deleted = 0 " +

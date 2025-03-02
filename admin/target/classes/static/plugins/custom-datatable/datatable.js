@@ -51,9 +51,9 @@ var Datatable = function() {
                         // data tables spesific
                         "lengthMenu": "<span class='seperator'>|</span>View _MENU_ records",
                         "info": "<span class='seperator'>|</span>Found total _TOTAL_ records",
-                        "infoEmpty": "No records found to show",
-                        "emptyTable": "No data available in table",
-                        "zeroRecords": "No matching records found",
+                        "infoEmpty": "Không có dữ liệu nào được tìm thấy để hiển thị",
+                        "emptyTable": "Không có dữ liệu trong bảng",
+                        "zeroRecords": "Không tìm thấy dữ liệu phù hợp",
                         "paginate": {
                             "previous": "Prev",
                             "next": "Next",
